@@ -1,0 +1,338 @@
+{
+  "en": {
+    "title": "PaNasMs — Your NAS, within reach",
+    "description": "Manage your home NAS from a browser. Files, disks, people and network, together in a clear interface.",
+    "navFeatures": "Explore",
+    "navInstall": "Get started",
+    "language": "Language",
+    "skip": "Skip to content",
+    "github": "View on GitHub",
+    "eyebrow": "Pavlo's NAS Management System",
+    "heroTitle": "Your NAS.\nWithin reach.",
+    "heroText": "A home for your files. A clear view of your storage. Manage your Linux NAS from your browser, with the tools you need in one place.",
+    "explore": "Take a look inside",
+    "status": "In active development",
+    "heroCaption": "Your desktop: shortcuts and live system widgets, arranged your way.",
+    "introLabel": "A familiar place to manage it all",
+    "introTitle": "Less guesswork.\nMore control.",
+    "introText": "From moving a folder to checking a disk, each part of PaNasMs has a clear job. Here is what you can do today.",
+    "enlarge": "Enlarge screenshot",
+    "close": "Close screenshot",
+    "imageNote": "Real interface screenshots, captured in English. Some views are cropped to keep personal information out.",
+    "features": [
+      {
+        "id": "files",
+        "tag": "Files",
+        "title": "Your folders,\nwhere you expect them.",
+        "text": "Browse local storage and connected network folders in one place. Upload files by dropping them into the browser, organise folders and recover items from the trash.",
+        "points": [
+          "Folder tree and familiar navigation",
+          "List and icon views, with image thumbnails",
+          "Copy, move and manage access permissions"
+        ],
+        "caption": "Files module · system folders in icon view"
+      },
+      {
+        "id": "storage",
+        "tag": "Storage",
+        "title": "Know what is\nhappening to your disks.",
+        "text": "See your drives and disk arrays together. Check temperatures and health, manage partitions and mounts, and follow the progress of RAID maintenance.",
+        "points": [
+          "RAID arrays with their member disks",
+          "Disk health checks and schedules",
+          "Disk sleep and supported cooling controls"
+        ],
+        "caption": "Storage · four disks in a RAID 5 array"
+      },
+      {
+        "id": "users",
+        "tag": "People & access",
+        "title": "A place for everyone.\nAccess you decide.",
+        "text": "Use your existing Linux accounts. Create users and groups, choose home folders and control who can use shared folders over SMB or NFS.",
+        "points": [
+          "Personal profiles, language and desktop",
+          "Users, groups and folder permissions",
+          "Shared folders for other devices on your network"
+        ],
+        "caption": "Users and groups · create-user form"
+      },
+      {
+        "id": "network",
+        "tag": "Network",
+        "title": "Connect your NAS.\nOr share its connection.",
+        "text": "Manage wired and Wi-Fi adapters. A simple wizard helps you share a connection over another Ethernet adapter or a supported Wi-Fi access point.",
+        "points": [
+          "Ethernet and Wi-Fi in one place",
+          "Connection sharing with multiple adapters",
+          "Confirmation and rollback for network changes"
+        ],
+        "caption": "Network · choose where to share a connection"
+      },
+      {
+        "id": "modules",
+        "tag": "Make it yours",
+        "title": "Add the tools\nyou actually need.",
+        "text": "Install modules from a catalog or a package file. Add a file manager or terminal, and manage each module independently of the core system.",
+        "points": [
+          "Install, enable, disable and remove modules",
+          "Add your own module repositories",
+          "Cloud Sync prototype for Google Drive and Dropbox"
+        ],
+        "caption": "Modules · installed apps and their status"
+      }
+    ],
+    "getLabel": "Ready to explore?",
+    "getTitle": "Start with your hardware.\nKeep your Linux.",
+    "getText": "PaNasMs installs as a Debian package on top of Linux. It is not a separate bootable operating-system image.",
+    "requirementsTitle": "What you need",
+    "requirements": "Debian 13 or Raspberry Pi OS based on Debian 13, a supported ARM64 or AMD64 machine, an existing administrator account and internet access to download dependencies. The current live test system is a Raspberry Pi; hardware features vary by device.",
+    "steps": [
+      [
+        "Choose a package",
+        "Pick the build for your processor and read the installation notes."
+      ],
+      [
+        "Install with dependencies",
+        "APT installs PaNasMs and the system tools it needs, including RAID and file-sharing services."
+      ],
+      [
+        "Open your browser",
+        "Complete the initial configuration, then sign in with your Linux administrator account."
+      ]
+    ],
+    "installLink": "Read the installation guide",
+    "buildLink": "Browse test builds",
+    "development": "An evolving project, not a finished appliance.",
+    "developmentText": "The stable channel does not have a release yet. Current builds are for testing. Keep backups of important files; RAID is not a backup. Wi-Fi access points and fan control require compatible hardware.",
+    "footerDescription": "A browser-based home for your NAS.",
+    "source": "Source code",
+    "license": "License",
+    "credits": "Image credits",
+    "licenseText": "Source available under PolyForm Noncommercial 1.0.0. Commercial use is restricted; see the license terms.",
+    "creditsText": "Interface: PaNasMs. Wallpaper visible in screenshots: Flow by Sandra Smukaste, from KDE, licensed under CC BY-SA 4.0. Screenshots are cropped views of the running application."
+  },
+  "ru": {
+    "title": "PaNasMs — Ваш NAS под рукой",
+    "description": "Управляйте домашним NAS через браузер. Файлы, диски, пользователи и сеть в одном понятном интерфейсе.",
+    "navFeatures": "Возможности",
+    "navInstall": "С чего начать",
+    "language": "Язык",
+    "skip": "К содержимому",
+    "github": "Открыть GitHub",
+    "eyebrow": "Pavlo's NAS Management System",
+    "heroTitle": "Ваш NAS.\nВсё под рукой.",
+    "heroText": "Место для ваших файлов. Понятная картина состояния дисков. Управляйте домашним NAS на Linux через браузер — нужные инструменты собраны вместе.",
+    "explore": "Посмотреть возможности",
+    "status": "Активно развивается",
+    "heroCaption": "Ваш рабочий стол: значки и виджеты состояния, расположенные так, как удобно вам.",
+    "introLabel": "Знакомый подход к управлению",
+    "introTitle": "Меньше догадок.\nБольше контроля.",
+    "introText": "Переместить папку или проверить диск — у каждого раздела PaNasMs своя понятная задача. Вот что уже можно делать.",
+    "enlarge": "Увеличить скриншот",
+    "close": "Закрыть скриншот",
+    "imageNote": "Скриншоты настоящего интерфейса на английском. Некоторые виды обрезаны, чтобы не показывать личные данные.",
+    "features": [
+      {
+        "id": "files",
+        "tag": "Файлы",
+        "title": "Ваши папки.\nНа привычных местах.",
+        "text": "Работайте с локальными и подключёнными сетевыми папками в одном окне. Загружайте файлы перетаскиванием, наводите порядок и возвращайте удалённое из корзины.",
+        "points": [
+          "Дерево папок и привычная навигация",
+          "Список и плитки с миниатюрами изображений",
+          "Копирование, перемещение и права доступа"
+        ],
+        "caption": "Модуль «Файлы» · системные папки плитками"
+      },
+      {
+        "id": "storage",
+        "tag": "Хранилище",
+        "title": "Знайте, что происходит\nс вашими дисками.",
+        "text": "Накопители и массивы видны вместе. Следите за температурой и состоянием, управляйте разделами и монтированием, наблюдайте за прогрессом обслуживания RAID.",
+        "points": [
+          "RAID-массивы с дисками внутри",
+          "Проверки состояния дисков по расписанию",
+          "Сон дисков и управление совместимым охлаждением"
+        ],
+        "caption": "Хранилище · четыре диска в массиве RAID 5"
+      },
+      {
+        "id": "users",
+        "tag": "Пользователи и доступ",
+        "title": "Каждому — своё место.\nДоступ решаете вы.",
+        "text": "Используйте существующие учётные записи Linux. Создавайте пользователей и группы, выбирайте домашние папки и управляйте доступом к общим папкам по SMB или NFS.",
+        "points": [
+          "Личный профиль, язык и рабочий стол",
+          "Пользователи, группы и права на папки",
+          "Общие папки для устройств в вашей сети"
+        ],
+        "caption": "Пользователи и группы · форма создания пользователя"
+      },
+      {
+        "id": "network",
+        "tag": "Сеть",
+        "title": "Подключите NAS.\nИли раздайте его сеть.",
+        "text": "Управляйте проводными и Wi-Fi-адаптерами. Простой мастер поможет раздать подключение через другой Ethernet-адаптер или совместимую точку доступа Wi-Fi.",
+        "points": [
+          "Ethernet и Wi-Fi в одном разделе",
+          "Раздача подключения на несколько адаптеров",
+          "Подтверждение и откат сетевых изменений"
+        ],
+        "caption": "Сеть · выбор интерфейсов для раздачи подключения"
+      },
+      {
+        "id": "modules",
+        "tag": "Под ваши задачи",
+        "title": "Добавляйте то,\nчто нужно именно вам.",
+        "text": "Устанавливайте модули из каталога или файла. Добавьте файловый менеджер или терминал и управляйте каждым модулем независимо от основной системы.",
+        "points": [
+          "Установка, включение, отключение и удаление",
+          "Подключение собственных репозиториев модулей",
+          "Прототип Cloud Sync для Google Drive и Dropbox"
+        ],
+        "caption": "Модули · установленные приложения и их состояние"
+      }
+    ],
+    "getLabel": "Хотите попробовать?",
+    "getTitle": "Ваше оборудование.\nВаш Linux.",
+    "getText": "PaNasMs устанавливается пакетом Debian поверх Linux. Это не отдельный загрузочный образ операционной системы.",
+    "requirementsTitle": "Что понадобится",
+    "requirements": "Debian 13 или Raspberry Pi OS на основе Debian 13, совместимое устройство ARM64 или AMD64, существующая учётная запись администратора и интернет для загрузки зависимостей. Сейчас система проверяется в работе на Raspberry Pi; возможности зависят от оборудования.",
+    "steps": [
+      [
+        "Выберите пакет",
+        "Найдите сборку для своего процессора и прочитайте инструкцию."
+      ],
+      [
+        "Установите с зависимостями",
+        "APT установит PaNasMs и нужные системные инструменты, включая RAID и сетевой доступ к файлам."
+      ],
+      [
+        "Откройте браузер",
+        "Выполните начальную настройку и войдите с учётной записью администратора Linux."
+      ]
+    ],
+    "installLink": "Инструкция установки",
+    "buildLink": "Тестовые сборки",
+    "development": "Проект развивается — это ещё не готовый бытовой прибор.",
+    "developmentText": "В стабильном канале пока нет релиза. Текущие сборки предназначены для тестирования. Храните резервные копии важных файлов: RAID не заменяет бэкап. Точка доступа Wi-Fi и управление вентиляторами требуют совместимого оборудования.",
+    "footerDescription": "Ваш NAS — в понятном веб-интерфейсе.",
+    "source": "Исходный код",
+    "license": "Лицензия",
+    "credits": "Авторы изображений",
+    "licenseText": "Исходный код доступен по PolyForm Noncommercial 1.0.0. Коммерческое использование ограничено условиями лицензии.",
+    "creditsText": "Интерфейс: PaNasMs. Обои на скриншотах: Flow, автор Sandra Smukaste, из коллекции KDE, лицензия CC BY-SA 4.0. Скриншоты — обрезанные виды работающего приложения."
+  },
+  "uk": {
+    "title": "PaNasMs — Ваш NAS під рукою",
+    "description": "Керуйте домашнім NAS через браузер. Файли, диски, користувачі та мережа в одному зрозумілому інтерфейсі.",
+    "navFeatures": "Можливості",
+    "navInstall": "Як почати",
+    "language": "Мова",
+    "skip": "До вмісту",
+    "github": "Відкрити GitHub",
+    "eyebrow": "Pavlo's NAS Management System",
+    "heroTitle": "Ваш NAS.\nУсе під рукою.",
+    "heroText": "Місце для ваших файлів. Зрозуміла картина стану дисків. Керуйте домашнім NAS на Linux через браузер — потрібні інструменти зібрано разом.",
+    "explore": "Переглянути можливості",
+    "status": "Активно розвивається",
+    "heroCaption": "Ваш робочий стіл: значки й віджети стану, розташовані так, як зручно вам.",
+    "introLabel": "Знайомий підхід до керування",
+    "introTitle": "Менше здогадок.\nБільше контролю.",
+    "introText": "Перемістити папку чи перевірити диск — кожен розділ PaNasMs має зрозуміле завдання. Ось що вже можна робити.",
+    "enlarge": "Збільшити скриншот",
+    "close": "Закрити скриншот",
+    "imageNote": "Скриншоти справжнього інтерфейсу англійською. Деякі види обрізано, щоб не показувати особисті дані.",
+    "features": [
+      {
+        "id": "files",
+        "tag": "Файли",
+        "title": "Ваші папки.\nНа звичних місцях.",
+        "text": "Працюйте з локальними й підключеними мережевими папками в одному вікні. Завантажуйте файли перетягуванням, наводьте лад і повертайте видалене з кошика.",
+        "points": [
+          "Дерево папок і звична навігація",
+          "Список і плитки з мініатюрами зображень",
+          "Копіювання, переміщення та права доступу"
+        ],
+        "caption": "Модуль «Файли» · системні папки плитками"
+      },
+      {
+        "id": "storage",
+        "tag": "Сховище",
+        "title": "Знайте, що відбувається\nз вашими дисками.",
+        "text": "Накопичувачі й масиви видно разом. Стежте за температурою та станом, керуйте розділами й монтуванням, спостерігайте за обслуговуванням RAID.",
+        "points": [
+          "RAID-масиви з дисками всередині",
+          "Перевірки стану дисків за розкладом",
+          "Сон дисків і керування сумісним охолодженням"
+        ],
+        "caption": "Сховище · чотири диски в масиві RAID 5"
+      },
+      {
+        "id": "users",
+        "tag": "Користувачі та доступ",
+        "title": "Кожному — своє місце.\nДоступ вирішуєте ви.",
+        "text": "Використовуйте наявні облікові записи Linux. Створюйте користувачів і групи, обирайте домашні папки та керуйте доступом до спільних папок через SMB або NFS.",
+        "points": [
+          "Особистий профіль, мова та робочий стіл",
+          "Користувачі, групи та права на папки",
+          "Спільні папки для пристроїв у вашій мережі"
+        ],
+        "caption": "Користувачі та групи · форма створення користувача"
+      },
+      {
+        "id": "network",
+        "tag": "Мережа",
+        "title": "Підключіть NAS.\nАбо роздайте його мережу.",
+        "text": "Керуйте дротовими й Wi-Fi-адаптерами. Простий майстер допоможе роздати підключення через інший Ethernet-адаптер або сумісну точку доступу Wi-Fi.",
+        "points": [
+          "Ethernet і Wi-Fi в одному розділі",
+          "Роздача підключення на кілька адаптерів",
+          "Підтвердження та відкат мережевих змін"
+        ],
+        "caption": "Мережа · вибір інтерфейсів для роздачі підключення"
+      },
+      {
+        "id": "modules",
+        "tag": "Під ваші завдання",
+        "title": "Додавайте те,\nщо потрібно саме вам.",
+        "text": "Установлюйте модулі з каталогу або файлу. Додайте файловий менеджер чи термінал і керуйте кожним модулем незалежно від основної системи.",
+        "points": [
+          "Установлення, увімкнення, вимкнення й видалення",
+          "Підключення власних репозиторіїв модулів",
+          "Прототип Cloud Sync для Google Drive і Dropbox"
+        ],
+        "caption": "Модулі · встановлені застосунки та їхній стан"
+      }
+    ],
+    "getLabel": "Хочете спробувати?",
+    "getTitle": "Ваше обладнання.\nВаш Linux.",
+    "getText": "PaNasMs установлюється пакетом Debian поверх Linux. Це не окремий завантажувальний образ операційної системи.",
+    "requirementsTitle": "Що знадобиться",
+    "requirements": "Debian 13 або Raspberry Pi OS на основі Debian 13, сумісний пристрій ARM64 чи AMD64, наявний обліковий запис адміністратора та інтернет для завантаження залежностей. Зараз систему перевіряють у роботі на Raspberry Pi; можливості залежать від обладнання.",
+    "steps": [
+      [
+        "Оберіть пакет",
+        "Знайдіть збірку для свого процесора та прочитайте інструкцію."
+      ],
+      [
+        "Установіть із залежностями",
+        "APT установлює PaNasMs і потрібні системні інструменти, включно з RAID і мережевим доступом до файлів."
+      ],
+      [
+        "Відкрийте браузер",
+        "Виконайте початкове налаштування й увійдіть з обліковим записом адміністратора Linux."
+      ]
+    ],
+    "installLink": "Інструкція встановлення",
+    "buildLink": "Тестові збірки",
+    "development": "Проєкт розвивається — це ще не готовий побутовий прилад.",
+    "developmentText": "У стабільному каналі поки немає релізу. Поточні збірки призначено для тестування. Зберігайте резервні копії важливих файлів: RAID не замінює бекап. Точка доступу Wi-Fi та керування вентиляторами потребують сумісного обладнання.",
+    "footerDescription": "Ваш NAS — у зрозумілому вебінтерфейсі.",
+    "source": "Вихідний код",
+    "license": "Ліцензія",
+    "credits": "Автори зображень",
+    "licenseText": "Вихідний код доступний за PolyForm Noncommercial 1.0.0. Комерційне використання обмежено умовами ліцензії.",
+    "creditsText": "Інтерфейс: PaNasMs. Шпалери на скриншотах: Flow, авторка Sandra Smukaste, з колекції KDE, ліцензія CC BY-SA 4.0. Скриншоти — обрізані види застосунку, що працює."
+  }
+}
