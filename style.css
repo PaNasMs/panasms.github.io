@@ -675,3 +675,9 @@ figcaption {
 .start-intro > p:last-child {
   margin: 0;
 }
+
+.policy-page { max-width: 860px; padding-block: 3rem; }
+.policy-page h1 { font-size: clamp(2rem, 5vw, 3.25rem); }
+.policy-page h2 { font-size: 1.4rem; margin-top: 2.4rem; }
+.policy-page p, .policy-page li { line-height: 1.75; overflow-wrap: anywhere; }
+.policy-page ul { padding-left: 1.5rem; }

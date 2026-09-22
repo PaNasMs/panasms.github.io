@@ -28,13 +28,13 @@ class Page(HTMLParser):
             self.images += 1
 
 pages = {p.resolve(): Page(p) for p in ROOT.rglob('*.html')}
-assert len(pages) == 3
+assert len(pages) == 5
 for path, page in pages.items():
-    assert page.images == 7, (path, page.images)
+    assert page.images == (0 if path.parent.name in ("privacy", "terms") else 7), (path, page.images)
     for link in page.links:
         url = urlsplit(link)
         if url.scheme or url.netloc:
-            assert url.scheme == 'https', f'Non-HTTPS external link: {link}'
+            assert url.scheme in ('https', 'mailto'), f'Non-HTTPS external link: {link}'
             continue
         target = (path.parent / unquote(url.path)).resolve() if url.path else path
         if target.is_dir():
@@ -47,4 +47,4 @@ keys = set(content['en'])
 for language, text in content.items():
     assert set(text) == keys, f'Incomplete translation: {language}'
     assert [f['id'] for f in text['features']] == ['files','storage','users','network','modules']
-print('Three languages, six screenshots per page and all local links verified.')
+print('Three presentation languages, two policy pages, screenshots and local links verified.')

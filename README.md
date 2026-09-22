@@ -20,6 +20,7 @@ python3 -m http.server 4173 --bind 127.0.0.1 --directory public
 
 - `content.json`: translated descriptions, captions and navigation.
 - `build.py`: static HTML, metadata and sitemap generation.
+- `pages/`: English privacy policy and terms of use for the website and OAuth setup.
 - `style.css`: responsive layout and shared visual styles.
 - `app.js`: screenshot enlargement, Escape dismissal and focus restoration.
 - `assets/`: original English interface screenshots, captured September 22, 2026.
