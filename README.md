@@ -85,7 +85,7 @@ before reading dimensions. Browser captures may return JPEG bytes regardless of
 the filename; encode them as PNG before adding them. Invalid dimensions previously
 caused overflowing layout calculations and overlapping installation/footer content.
 
-Current screenshots: desktop, Files, RAID (cropped before serial numbers),
+Current screenshots: desktop, Files, Storage (complete disks-and-arrays view, including the system microSD),
 user creation, connection sharing, Modules, Cloud Sync folder selection (cropped
 below the account identity), and metrics history. No setup form was submitted.
 Do not publish private account lists, file contents or credentials.
