@@ -25,3 +25,20 @@ viewer.addEventListener("click", (event) => {
     viewer.close();
 });
 viewer.addEventListener("close", () => opener?.focus());
+
+for (const figure of document.querySelectorAll(".shot")) {
+  const controls = figure.querySelector(".shot-themes");
+  if (!controls) continue;
+  controls.hidden = false;
+  for (const button of controls.querySelectorAll("button")) {
+    button.addEventListener("click", () => {
+      const theme = button.dataset.showTheme;
+      for (const view of figure.querySelectorAll("[data-theme]")) {
+        view.hidden = view.dataset.theme !== theme;
+      }
+      for (const option of controls.querySelectorAll("button")) {
+        option.setAttribute("aria-pressed", String(option === button));
+      }
+    });
+  }
+}

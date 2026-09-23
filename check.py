@@ -2,6 +2,7 @@ from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urlsplit, unquote
 import json
+import struct
 
 ROOT = Path(__file__).resolve().parent / 'public'
 
@@ -25,12 +26,19 @@ class Page(HTMLParser):
         if tag == 'img' and attrs.get('src'):
             assert 'alt' in attrs, f'Missing image alt: {self.path}'
             assert 'width' in attrs and 'height' in attrs, f'Missing dimensions: {attrs}'
+            if 'assets/screenshots/' in attrs['src']:
+                image = (self.path.parent / attrs['src']).resolve()
+                raw = image.read_bytes()
+                assert raw.startswith(b'\x89PNG\r\n\x1a\n'), f'Not PNG: {image}'
+                size = struct.unpack('>II', raw[16:24])
+                assert size == (int(attrs['width']), int(attrs['height'])), f'Wrong dimensions: {image}'
+                assert all(0 < value <= 10000 for value in size), f'Unreasonable dimensions: {image}'
             self.images += 1
 
 pages = {p.resolve(): Page(p) for p in ROOT.rglob('*.html')}
 assert len(pages) == 7
 for path, page in pages.items():
-    assert page.images == (0 if path.parent.name in ("privacy", "terms") else 5 if path.parent.name == "google" else 6 if path.parent.name == "rpi_radxa_penta" else 7), (path, page.images)
+    assert page.images == (0 if path.parent.name in ("privacy", "terms") else 5 if path.parent.name == "google" else 6 if path.parent.name == "rpi_radxa_penta" else 18), (path, page.images)
     for link in page.links:
         url = urlsplit(link)
         if url.scheme or url.netloc:
@@ -46,5 +54,5 @@ content = json.loads((ROOT.parent / 'content.json').read_text())
 keys = set(content['en'])
 for language, text in content.items():
     assert set(text) == keys, f'Incomplete translation: {language}'
-    assert [f['id'] for f in text['features']] == ['files','storage','users','network','modules']
+    assert [f['id'] for f in text['features']] == ['files','storage','users','network','modules','cloud','history']
 print('Three presentation languages, two policy pages, Google setup guide, hardware build, screenshots and local links verified.')

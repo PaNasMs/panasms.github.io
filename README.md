@@ -26,7 +26,7 @@ python3 -m http.server 4173 --bind 127.0.0.1 --directory public
   Its five reviewed screenshots live in `assets/google-setup/`.
 - `style.css`: responsive layout and shared visual styles.
 - `app.js`: screenshot enlargement, Escape dismissal and focus restoration.
-- `assets/`: original English interface screenshots, captured September 22, 2026.
+- `assets/screenshots/`: sixteen real English UI screenshots, captured September 23, 2026 in light and dark themes.
 - `public/`: generated website, intentionally ignored by Git.
 
 GitHub Actions checks pull requests and deploys `main` to GitHub Pages. Pages must
@@ -69,3 +69,23 @@ existing English wiring illustrations (PNG). See NOTICE and visible page credits
 Photos are illustrative; pin-number tables and verified board orientation govern
 electrical connections. Never publish original desktop photos, serial numbers,
 monitor content or private hardware notes wholesale. CAD files are not included.
+
+## Presentation refresh
+
+The landing page targets DIY ARM64 NAS builds. x64 (AMD64) support is planned,
+but has not been tested or brought to a supported state. The first physical build
+is linked prominently from the platform section and again from the footer.
+
+Each feature has light/dark screenshots with a keyboard-accessible local switch.
+Without JavaScript the light view and a direct dark-image link remain available.
+The screenshot viewer always enlarges the selected theme.
+
+Capture PNGs must actually contain PNG data: the build validates the signature
+before reading dimensions. Browser captures may return JPEG bytes regardless of
+the filename; encode them as PNG before adding them. Invalid dimensions previously
+caused overflowing layout calculations and overlapping installation/footer content.
+
+Current screenshots: desktop, Files, RAID (cropped before serial numbers),
+user creation, connection sharing, Modules, Cloud Sync folder selection (cropped
+below the account identity), and metrics history. No setup form was submitted.
+Do not publish private account lists, file contents or credentials.
