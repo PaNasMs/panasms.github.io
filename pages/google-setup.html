@@ -1,0 +1,294 @@
+<h1 id="connect-google-to-your-nas">Connect Google to your NAS</h1>
+<p>This guide connects Google to <strong>PaNasMs (Pavlo's NAS Management System)</strong>.
+You will create a Google client once, save its two credentials on your NAS,
+then link a Google account to your existing NAS user.</p>
+<p><strong>Result:</strong> use <strong>Sign in with Google</strong> with your existing NAS user. Optionally,
+authorize Google Drive for Cloud Sync in a separate step. Your normal NAS password
+still works. Creating a client or linking an account does not start synchronization.</p>
+<p>Screenshots use the English interface and were captured on 22 September 2026.
+Example forms were not submitted. Google may move or rename controls.</p>
+<nav class="guide-toc" aria-label="On this page"><strong>On this page</strong><ol><li><a href="#how-the-proxy-works">How the proxy works</a></li><li><a href="#before-you-start">Before you start</a></li><li><a href="#1-create-or-select-a-google-project">1. Create or select a Google project</a></li><li><a href="#2-tell-google-what-your-app-is">2. Tell Google what your app is</a></li><li><a href="#3-check-the-audience">3. Check the audience</a></li><li><a href="#4-create-the-google-client">4. Create the Google client</a></li><li><a href="#5-save-the-credentials-on-your-nas">5. Save the credentials on your NAS</a></li><li><a href="#6-link-your-google-account">6. Link your Google account</a></li><li><a href="#7-try-signing-in">7. Try signing in</a></li><li><a href="#8-optional-connect-google-drive-to-cloud-sync">8. Optional: connect Google Drive to Cloud Sync</a></li><li><a href="#if-something-does-not-work">If something does not work</a></li></ol></nav>
+<h2 id="how-the-proxy-works">How the proxy works</h2>
+<p><strong>Your NAS can stay on your private network, behind NAT or CGNAT.</strong> No public NAS
+address, domain name or router port forwarding is required for Google authorization.
+The PaNasMs OAuth gateway provides the public HTTPS callback that Google needs.</p>
+<ol>
+<li>Start linking or sign-in in the NAS interface; it opens Google's authorization page.</li>
+<li>After you approve, Google sends a temporary authorization code to the gateway.</li>
+<li>The NAS retrieves the response through an outbound HTTPS request, then exchanges
+   the code directly with Google. Keep the original NAS tab open during this step.</li>
+<li>The NAS finishes linking or sign-in. The authorization tab normally closes;
+   if it stays open, return to the original NAS tab.</li>
+</ol>
+<p>The gateway relays an authorization code and an opaque request identifier. It does
+not receive your client secret or the resulting access/refresh tokens. It is an
+external service involved in authorization, not a tunnel into your NAS and not a
+proxy for your Drive files. It does not make the NAS reachable when you are away
+from home; remote access to the panel is a separate setup.</p>
+<p>Both the browser and NAS need internet access to Google and the gateway. If the
+gateway is unavailable, new Google authorization cannot finish; local NAS password
+login remains available. You do not need to deploy your own proxy for this setup.</p>
+<h2 id="before-you-start">Before you start</h2>
+<ul>
+<li>Have your Google account and your current NAS password ready.</li>
+<li>Sign in to PaNasMs as an administrator to configure the client.</li>
+<li>Your NAS and browser need internet access. You do not need to expose your NAS
+  to the internet or forward a router port: the built-in HTTPS callback handles
+  Google's response.</li>
+<li>Keep the NAS tab open while working in Google Cloud Console in another tab.</li>
+</ul>
+<p><strong>Already have a Web application client for this NAS?</strong> Check its redirect URI
+in <a href="#4-create-the-google-client">step 4</a>, then go to <a href="#5-save-the-credentials-on-your-nas">step 5</a>.
+Do not create a replacement client just to link another Google account.</p>
+<h2 id="1-create-or-select-a-google-project">1. Create or select a Google project</h2>
+<ol>
+<li>Open <a href="https://console.cloud.google.com/">Google Cloud Console</a>.</li>
+<li>Sign in with the Google account that will manage the NAS integration.</li>
+<li>Click the project selector next to the Google Cloud logo, then <strong>New project</strong>.</li>
+<li>Enter a name such as <strong>PaNasMs home NAS</strong>. The automatically suggested
+   <strong>Project ID</strong> can stay as it is; yours may differ from the screenshot.</li>
+<li>For a personal account, leave <strong>Parent resource</strong> as <strong>No organisation</strong>.
+   A work account may require an organisation selected by your administrator.</li>
+<li>Click <strong>Create</strong>, wait for creation, and select the new project in the header.</li>
+</ol>
+<figure class="guide-shot"><img alt="New Google project form with an example name and no organisation" src="../../../assets/google-setup/create-project.png" width="589" height="305" loading="lazy" decoding="async" /></figure>
+<p>You can also use an existing project that you manage. No virtual machine,
+storage bucket or Drive API is needed for this sign-in setup.</p>
+<h2 id="2-tell-google-what-your-app-is">2. Tell Google what your app is</h2>
+<p>Open <a href="https://console.cloud.google.com/auth/overview">Google Auth Platform</a>
+and check that the correct project is selected at the top.</p>
+<p>If you see <strong>Get started</strong>, click it and complete the short wizard:</p>
+<div class="guide-table" role="region" aria-label="Setup reference table" tabindex="0"><table>
+<thead>
+<tr>
+<th>Screen</th>
+<th>What to enter</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>App information</td>
+<td><strong>App name:</strong> <code>PaNasMs home NAS</code>. <strong>User support email:</strong> your email.</td>
+</tr>
+<tr>
+<td>Audience</td>
+<td>Choose <strong>External</strong> for personal Google accounts, or a mixture of personal and work accounts.</td>
+</tr>
+<tr>
+<td>Contact information</td>
+<td>An email address you check.</td>
+</tr>
+<tr>
+<td>Finish</td>
+<td>Read Google's policy; if you agree, accept it, then <strong>Continue → Create</strong>.</td>
+</tr>
+</tbody>
+</table></div>
+<p>If the app is already configured, the same settings are under <strong>Branding</strong> and
+<strong>Audience</strong> in the left menu. A logo and public website are not needed for this
+personal testing setup. Do not invent website or domain ownership details.</p>
+<p>See <a href="https://developers.google.com/workspace/guides/configure-oauth-consent">Google's consent setup instructions</a>
+if your console shows a different setup wizard.</p>
+<h2 id="3-check-the-audience">3. Check the audience</h2>
+<p>In the left menu, open <strong>Audience</strong>. For this guide, leave:</p>
+<ul>
+<li><strong>User type:</strong> External.</li>
+<li><strong>Publishing status:</strong> Testing.</li>
+</ul>
+<figure class="guide-shot"><img alt="Audience page showing External, Testing and the Add users button" src="../../../assets/google-setup/audience.png" width="1050" height="769" loading="lazy" decoding="async" /></figure>
+<p>You do <strong>not</strong> need to press <strong>Publish app</strong> for identity-only sign-in.
+The empty test-user list in this screenshot is intentional: PaNasMs sign-in asks
+only for your identity, email and profile. Google exempts these permissions from
+the testing user-list requirement and seven-day authorization expiry.
+For additional permissions such as Drive in step 8, the testing rules differ:
+<strong>Audience → Add users</strong> is where you add the intended Google email addresses.
+See <a href="https://support.google.com/cloud/answer/15549945?hl=en">Google's audience rules</a>.</p>
+<p>PaNasMs requests <code>openid</code>, <code>email</code> and <code>profile</code> itself. You do not need to add
+Drive, Gmail or Calendar permissions for panel sign-in. If you maintain a scope
+list under <strong>Data access</strong>, keep it limited to those basic identity permissions.</p>
+<h2 id="4-create-the-google-client">4. Create the Google client</h2>
+<p>Open <strong>Clients → Create client</strong> in Google Auth Platform.</p>
+<div class="guide-table" role="region" aria-label="Setup reference table" tabindex="0"><table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Application type</td>
+<td><strong>Web application</strong> — not Desktop app</td>
+</tr>
+<tr>
+<td>Name</td>
+<td><code>PaNasMs home NAS</code> or another name you recognise</td>
+</tr>
+<tr>
+<td>Authorised JavaScript origins</td>
+<td>Leave empty for the PaNasMs server-side flow</td>
+</tr>
+<tr>
+<td>Authorised redirect URIs</td>
+<td>Click <strong>Add URI</strong> in this section and paste the exact callback below</td>
+</tr>
+</tbody>
+</table></div>
+<pre><code class="language-text">https://panasms-oauth-gateway.panasms.workers.dev/callback
+</code></pre>
+<p>You can also copy this address from <strong>PaNasMs → Settings → External connections
+→ Authorized redirect URI</strong>. Use the value shown by your NAS if it differs.
+Do not put your local NAS address here, and do not add a trailing slash.</p>
+<figure class="guide-shot"><img alt="Web application client form with an empty JavaScript origins list and the PaNasMs callback" src="../../../assets/google-setup/create-client.png" width="870" height="910" loading="lazy" decoding="async" /></figure>
+<p>Click <strong>Create</strong>. Google shows a <strong>Client ID</strong> and <strong>Client secret</strong>.
+Copy both to a password manager or keep that dialog open for the next step.
+The secret is shown when created; do not assume you can view it again later.
+If Google offers a credentials JSON download, store it privately. Never commit
+it to GitHub or include the secret in a screenshot.
+These are application credentials, not your Google password.
+See <a href="https://developers.google.com/identity/protocols/oauth2/web-server#creatingcred">Google's client creation documentation</a>.</p>
+<h2 id="5-save-the-credentials-on-your-nas">5. Save the credentials on your NAS</h2>
+<p>In the NAS tab, open <strong>Settings → External connections</strong>.</p>
+<ol>
+<li>Paste Google's <strong>Client ID</strong> into <strong>Client ID</strong>.</li>
+<li>Paste Google's <strong>Client secret</strong> into <strong>Client secret</strong>.</li>
+<li>Select <strong>Enable Google account linking and sign-in</strong>.</li>
+<li>Click the <strong>checkmark</strong> button at the bottom. Its tooltip says <strong>Apply</strong>.</li>
+</ol>
+<figure class="guide-shot"><img alt="PaNasMs External connections settings with example Client ID, empty secret field and Apply checkmark" src="../../../assets/google-setup/nas-settings.png" width="1330" height="715" loading="lazy" decoding="async" /></figure>
+<p>The screenshot uses a placeholder ID and an empty secret field for illustration.
+Enter your real values. After saving, dots in the secret field mean a secret is
+already stored. Leaving that field untouched keeps it when the Client ID has not
+changed. A new Client ID requires its matching secret.</p>
+<h2 id="6-link-your-google-account">6. Link your Google account</h2>
+<p>Saving the client enables the feature; it does not yet link a user.</p>
+<ol>
+<li>Open the user menu in the top-right corner, then <strong>My profile → Connections</strong>.</li>
+<li>Click the <strong>Link Google account</strong> icon. Hover over an icon to see its title.</li>
+<li>Enter your <strong>current NAS/Linux password</strong>, then click <strong>Continue</strong>.</li>
+</ol>
+<figure class="guide-shot"><img alt="Link Google account dialog asking for the current Linux password" src="../../../assets/google-setup/link-account.png" width="419" height="337" loading="lazy" decoding="async" /></figure>
+<ol start="4">
+<li>In the Google tab, choose the account you want to link. Review and approve
+   the requested identity access. Enter a Google password only on Google's page.</li>
+<li>Keep the original NAS tab open. The authorization tab normally closes
+   automatically after handing the response back. If it stays open with
+   <strong>Authorization received</strong>, return to the NAS tab yourself.</li>
+<li>Wait until your Google account appears under <strong>Linked accounts</strong>. That is the
+   confirmation that linking finished; the callback page alone is not.</li>
+</ol>
+<p>If your browser blocks the new tab, use the authorization link in the NAS dialog.
+Repeat these steps to link another personal or work Google account to the same
+NAS user. You do not need a second Google client. A Google account can belong to
+only one NAS user on the same NAS.</p>
+<h2 id="7-try-signing-in">7. Try signing in</h2>
+<p>Keep your current NAS session open and open the NAS in a private/incognito
+browser window. On the login screen, choose <strong>Sign in with Google</strong> and select
+one of the accounts you linked. You should arrive at your usual NAS desktop.</p>
+<p>Your existing Linux permissions still apply. Google linking does not create an
+administrator, create a Linux user or change Linux/SMB passwords. If Google or
+the internet is unavailable, use the normal NAS username and password.</p>
+<h2 id="8-optional-connect-google-drive-to-cloud-sync">8. Optional: connect Google Drive to Cloud Sync</h2>
+<p>Skip this section if you only want Google sign-in. Use the <strong>same Google project
+and Web application client</strong> already configured on the NAS.</p>
+<ol>
+<li>In Google Cloud Console, open <strong>APIs &amp; Services → Library</strong>, find <strong>Google Drive
+   API</strong>, and click <strong>Enable</strong> for this project.</li>
+<li>Under <strong>Google Auth Platform → Audience</strong>, add every intended Google account
+   to <strong>Test users</strong> while the app is in Testing. This matters for Drive even when
+   basic sign-in worked without a test-user entry.</li>
+<li>If configuring <strong>Data access</strong>, add the Drive scope requested by your module.
+   Current Cloud Sync requests <code>https://www.googleapis.com/auth/drive</code> to work
+   with existing folders and upload, edit or delete files. The core also supports
+   <code>https://www.googleapis.com/auth/drive.readonly</code> for read-only consumers.</li>
+<li>In PaNasMs, install and enable <strong>Cloud Sync</strong>, then start its new-sync wizard.
+   Choose a linked Google account and <strong>Allow Google Drive access</strong>. Confirm your
+   NAS password and approve the additional permission in Google, using the same
+   Google account you selected in the wizard.</li>
+<li>Choose the Google Drive folder, destination folder on the NAS and sync direction.
+   Review the summary before starting. Linking alone never chooses or syncs folders.</li>
+</ol>
+<p>Choosing a folder limits the sync job, <strong>not the Google permission</strong>: full Drive
+consent can cover more than that folder. Each Google account needs its own consent;
+repeat the wizard for other accounts. Review or revoke module permissions in
+<strong>My profile → Connections</strong>.</p>
+<h3 id="testing-production-and-verification">Testing, Production and verification</h3>
+<p>For an External app in <strong>Testing</strong>, Drive offline authorization normally expires
+after seven days; reconnecting is then needed. Basic identity-only sign-in has an
+exception. For ongoing synchronization, review <strong>Audience → Publish app</strong> to move
+your own project to Production. Follow Google's current requirements for your app.</p>
+<p><strong>Production is not verification.</strong> Drive scopes used here are restricted. Google
+may still show an unverified-app warning, apply a user cap, or require verification
+and, depending on use, a security assessment. Personal-use exceptions do not mean
+that your app is verified. Work accounts may also require administrator approval.
+Do not promise unattended access based solely on the publishing-status switch.</p>
+<p>If Google requests branding, website, privacy policy or domain ownership, provide
+accurate details for your own application. Our project pages do not give you
+ownership of <code>panasms.github.io</code> or the gateway domain. If verification requires
+control of a callback domain you do not own, the shared gateway alone cannot meet
+that requirement; this needs a supported deployment with a domain you control.
+Do not change the callback in Google alone: it must match the NAS implementation.</p>
+<p>See Google's <a href="https://support.google.com/cloud/answer/15549945?hl=en">audience and publishing rules</a>,
+<a href="https://developers.google.com/workspace/drive/api/guides/api-specific-auth">Drive scope classifications</a>
+and <a href="https://developers.google.com/identity/protocols/oauth2/production-readiness/restricted-scope-verification">OAuth verification guidance</a>.</p>
+<h2 id="if-something-does-not-work">If something does not work</h2>
+<div class="guide-table" role="region" aria-label="Setup reference table" tabindex="0"><table>
+<thead>
+<tr>
+<th>What you see</th>
+<th>What to do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>redirect_uri_mismatch</code></td>
+<td>Open the same Google client used by the NAS. Compare <strong>Authorised redirect URIs</strong> with the NAS field, including <code>https</code>, <code>/callback</code> and the absence of an extra slash.</td>
+</tr>
+<tr>
+<td><code>invalid_client</code> or a client-credential error</td>
+<td>Recheck that Client ID and secret came from the same <strong>Web application</strong> client. Enter its correct secret on the NAS and apply. If lost, create a replacement secret in Google and update the NAS; do not revoke a working one before the replacement works.</td>
+</tr>
+<tr>
+<td>A change in Google has not taken effect</td>
+<td>Google Console warns that changes can take five minutes to a few hours. Wait, then start a fresh linking attempt from the NAS.</td>
+</tr>
+<tr>
+<td>Access blocked or <code>org_internal</code></td>
+<td>Check <strong>Audience</strong> and the selected Google account. Personal accounts need an External app. A managed work account may need permission from its Workspace administrator.</td>
+</tr>
+<tr>
+<td>Google asks for file access</td>
+<td>Expected only when you explicitly authorize Drive in a module. Basic panel sign-in needs no file or Gmail access. Check the app and requested permissions.</td>
+</tr>
+<tr>
+<td>Drive access blocked, or it stops after seven days</td>
+<td>Check Drive API, test-user membership and Testing status. See step 8; publishing does not remove verification or Workspace policy requirements.</td>
+</tr>
+<tr>
+<td>Gateway unavailable or authorization times out</td>
+<td>Check internet access from both NAS and browser. Keep the original NAS tab open. Restart the attempt once connectivity is restored; do not expose the NAS or change the callback to a local IP.</td>
+</tr>
+<tr>
+<td>Google account is not linked</td>
+<td>Sign in using your NAS password and complete <strong>My profile → Connections</strong> first. Matching email addresses alone do not link accounts.</td>
+</tr>
+<tr>
+<td>Authorization received, but no account appears</td>
+<td>Return to the original NAS tab and check its result. If the attempt expired, close the dialog and start again there. Do not refresh/reuse Google's completed callback.</td>
+</tr>
+<tr>
+<td>No Google sign-in button</td>
+<td>Check that an administrator saved valid client settings and enabled linking/sign-in, then refresh the login page.</td>
+</tr>
+</tbody>
+</table></div>
+<p>For implementation details, see <a href="https://github.com/PaNasMs/panasms/blob/main/documentation/external-connections.md">External connections</a> and <a href="https://github.com/PaNasMs/panasms/blob/main/documentation/external-grants.md">Module permissions</a>.</p>
+<h2 id="screenshot-credits">Screenshot credits</h2>
+<p>Google Cloud screenshots show Google's interface; its branding remains Google's.
+PaNasMs screenshots were captured from the running application, with example
+fields and crops excluding private account details. The NAS settings image includes
+<strong>Flow</strong> by <strong>Sandra Smukaste</strong>, from the
+<a href="https://github.com/KDE/plasma-workspace-wallpapers/tree/master/Flow">KDE wallpaper collection</a>,
+licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.
+The PaNasMs screenshot assets are shared under CC BY-SA 4.0, retaining the
+interface and wallpaper credits. This does not relicense Google's artwork.</p>

@@ -20,7 +20,10 @@ python3 -m http.server 4173 --bind 127.0.0.1 --directory public
 
 - `content.json`: translated descriptions, captions and navigation.
 - `build.py`: static HTML, metadata and sitemap generation.
-- `pages/`: English privacy policy and terms of use for the website and OAuth setup.
+- `pages/`: English privacy policy, terms of use and Google integration guide.
+- [Google setup guide](https://panasms.github.io/docs/setup/google/): OAuth client,
+  private-network callback relay, account linking and optional Drive permissions.
+  Its five reviewed screenshots live in `assets/google-setup/`.
 - `style.css`: responsive layout and shared visual styles.
 - `app.js`: screenshot enlargement, Escape dismissal and focus restoration.
 - `assets/`: original English interface screenshots, captured September 22, 2026.
