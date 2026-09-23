@@ -59,3 +59,13 @@ The wallpaper appears as the application's background; captures are cropped and
 scaled for display. The screenshot assets are shared under CC BY-SA 4.0, with
 PaNasMs interface credit and the wallpaper attribution retained. Third-party
 artwork retains its own license. See the visible image-credits section of the site.
+
+## Hardware build page
+
+[Pi 5 + Radxa Penta build](https://panasms.github.io/hardware/rpi_radxa_penta/)
+is authored in `pages/rpi-radxa-penta.html`. Assets are in
+`assets/hardware/rpi-radxa-penta/`: three edited owner photos (WebP) and three
+existing English wiring illustrations (PNG). See NOTICE and visible page credits.
+Photos are illustrative; pin-number tables and verified board orientation govern
+electrical connections. Never publish original desktop photos, serial numbers,
+monitor content or private hardware notes wholesale. CAD files are not included.

@@ -28,9 +28,9 @@ class Page(HTMLParser):
             self.images += 1
 
 pages = {p.resolve(): Page(p) for p in ROOT.rglob('*.html')}
-assert len(pages) == 6
+assert len(pages) == 7
 for path, page in pages.items():
-    assert page.images == (0 if path.parent.name in ("privacy", "terms") else 5 if path.parent.name == "google" else 7), (path, page.images)
+    assert page.images == (0 if path.parent.name in ("privacy", "terms") else 5 if path.parent.name == "google" else 6 if path.parent.name == "rpi_radxa_penta" else 7), (path, page.images)
     for link in page.links:
         url = urlsplit(link)
         if url.scheme or url.netloc:
@@ -47,4 +47,4 @@ keys = set(content['en'])
 for language, text in content.items():
     assert set(text) == keys, f'Incomplete translation: {language}'
     assert [f['id'] for f in text['features']] == ['files','storage','users','network','modules']
-print('Three presentation languages, two policy pages, Google setup guide, screenshots and local links verified.')
+print('Three presentation languages, two policy pages, Google setup guide, hardware build, screenshots and local links verified.')

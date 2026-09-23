@@ -1,7 +1,15 @@
 Required Notice: Original PaNasMs website code and text are licensed under the PolyForm Noncommercial License 1.0.0. See LICENSE.
 
-Screenshot assets in assets/ are licensed under Creative Commons Attribution-ShareAlike 4.0 (https://creativecommons.org/licenses/by-sa/4.0/).
+Interface screenshot assets in assets/ (excluding assets/hardware/) are licensed under Creative Commons Attribution-ShareAlike 4.0 (https://creativecommons.org/licenses/by-sa/4.0/).
 Interface: PaNasMs. Wallpaper appearing within the interface: Flow by Sandra Smukaste, from the KDE wallpaper collection, CC BY-SA 4.0. Captures are cropped views and may be scaled for display.
 Wallpaper source: https://github.com/KDE/plasma-workspace-wallpapers/tree/master/Flow
 
 Third-party icons and artwork retain their respective copyrights and licenses. This notice does not relicense the underlying application source or grant trademark rights.
+
+Hardware photos in assets/hardware/rpi-radxa-penta/*.webp: original photos by
+Pavlo, cropped and retouched using AI-assisted image editing. Published derivatives
+are covered by PolyForm Noncommercial 1.0.0. Originals are not distributed.
+Hardware wiring PNG illustrations: Radxa reference photograph with PaNasMs
+AI-assisted annotations and schematic pin enlargements, CC BY 4.0.
+Source: https://docs.radxa.com/en/accessories/storage/penta-sata-hat
+Licence: https://creativecommons.org/licenses/by/4.0/
