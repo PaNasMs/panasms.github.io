@@ -26,7 +26,7 @@ python3 -m http.server 4173 --bind 127.0.0.1 --directory public
   Its five reviewed screenshots live in `assets/google-setup/`.
 - `style.css`: responsive layout and shared visual styles.
 - `app.js`: screenshot enlargement, Escape dismissal and focus restoration.
-- `assets/screenshots/`: sixteen real English UI screenshots, captured September 23, 2026 in light and dark themes.
+- `assets/screenshots/`: eighteen real English UI screenshots, captured September 23–24, 2026 in light and dark themes.
 - `public/`: generated website, intentionally ignored by Git.
 
 GitHub Actions checks pull requests and deploys `main` to GitHub Pages. Pages must
@@ -87,5 +87,5 @@ caused overflowing layout calculations and overlapping installation/footer conte
 
 Current screenshots: desktop, Files, Storage (complete disks-and-arrays view, including the system microSD),
 user creation, connection sharing, Modules, Cloud Sync folder selection (cropped
-below the account identity), and metrics history. No setup form was submitted.
+below the account identity), metrics history, and running Docker containers. No setup form was submitted.
 Do not publish private account lists, file contents or credentials.

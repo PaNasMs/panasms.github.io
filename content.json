@@ -18,7 +18,7 @@
     "introText": "From moving a folder to checking a disk, each part of PaNasMs has a clear job. Here is what you can do today.",
     "enlarge": "Enlarge screenshot",
     "close": "Close screenshot",
-    "imageNote": "Captured from PaNasMs 0.2.7 on September 23, 2026. All screenshots use English; switch between light and dark themes. Cropped views keep personal data out. Setup forms are examples, not submitted changes.",
+    "imageNote": "Captured from PaNasMs 0.2.7 on September 23–24, 2026. All screenshots use English; switch between light and dark themes. Cropped views keep personal data out. Setup forms are examples, not submitted changes.",
     "features": [
       {
         "id": "files",
@@ -72,13 +72,26 @@
         "id": "modules",
         "tag": "Make it yours",
         "title": "Add the tools\nyou actually need.",
-        "text": "Install optional features from the catalog or a package file. Files, Terminal and Cloud Sync have their own versions and can be managed independently.",
+        "text": "Install optional features from the catalog or a package file. Files, Terminal, Cloud Sync and Containers and applications have their own versions and can be managed independently.",
         "points": [
           "Install from a catalog or archive; manage dependencies",
           "Add your own module repositories",
           "Terminal tabs stay active when you switch modules"
         ],
         "caption": "Modules · installed apps and their status"
+      },
+      {
+        "id": "containers",
+        "tag": "Docker",
+        "title": "More than storage.\nRun your own services.",
+        "text": "The optional Containers and applications module brings Docker into PaNasMs. Run a database or a web tool, connect services and manage them from the same interface. This is an administrator-only preview. Application catalog and new Compose deployment are not available in this preview",
+        "points": [
+          "Find images on Docker Hub or use a registry address; choose a tag and check processor compatibility",
+          "Create containers from downloaded images with forms for ports, environment variables and folders",
+          "Start, stop and restart; inspect logs and live resource use; manage networks and volumes",
+          "Detect existing Docker, install missing dependencies and move its storage from settings"
+        ],
+        "caption": "Containers and applications · a database and phpMyAdmin running on the NAS"
       },
       {
         "id": "cloud",
@@ -166,7 +179,7 @@
     "introText": "Переместить папку или проверить диск — у каждого раздела PaNasMs своя понятная задача. Вот что уже можно делать.",
     "enlarge": "Увеличить скриншот",
     "close": "Закрыть скриншот",
-    "imageNote": "Снято в PaNasMs 0.2.7 23 сентября 2026 года. Интерфейс на английском; можно переключать светлую и тёмную темы. Некоторые виды обрезаны для защиты личных данных. Формы показаны без применения изменений.",
+    "imageNote": "Снято в PaNasMs 0.2.7 23–24 сентября 2026 года. Интерфейс на английском; можно переключать светлую и тёмную темы. Некоторые виды обрезаны для защиты личных данных. Формы показаны без применения изменений.",
     "features": [
       {
         "id": "files",
@@ -220,13 +233,26 @@
         "id": "modules",
         "tag": "Под ваши задачи",
         "title": "Добавляйте то,\nчто нужно именно вам.",
-        "text": "Устанавливайте дополнительные возможности из каталога или файла. Файлы, Терминал и Cloud Sync имеют собственные версии и управляются независимо.",
+        "text": "Устанавливайте дополнительные возможности из каталога или файла. Файлы, Терминал, Cloud Sync и «Контейнеры и приложения» имеют собственные версии и управляются независимо.",
         "points": [
           "Установка из каталога или архива, учёт зависимостей",
           "Собственные репозитории модулей",
           "Вкладки терминала продолжают работать при смене раздела"
         ],
         "caption": "Модули · установленные приложения и их состояние"
+      },
+      {
+        "id": "containers",
+        "tag": "Docker",
+        "title": "Не только хранилище.\nЗапускайте свои сервисы.",
+        "text": "Устанавливаемый модуль «Контейнеры и приложения» добавляет управление Docker в PaNasMs. Запускайте базы данных и веб-инструменты, соединяйте сервисы и управляйте ими из одного интерфейса. Это предварительная версия для администраторов. Каталог приложений и развёртывание новых Compose-проектов пока недоступны",
+        "points": [
+          "Поиск образов в Docker Hub или адрес реестра, выбор тега и проверка совместимости с процессором",
+          "Создание контейнеров из скачанных образов: формы для портов, переменных окружения и папок",
+          "Запуск, остановка, перезапуск, журналы и текущие ресурсы; управление сетями и томами",
+          "Обнаружение Docker, установка недостающих зависимостей и перенос его хранилища через настройки"
+        ],
+        "caption": "Контейнеры и приложения · база данных и phpMyAdmin работают на NAS"
       },
       {
         "id": "cloud",
@@ -314,7 +340,7 @@
     "introText": "Перемістити папку чи перевірити диск — кожен розділ PaNasMs має зрозуміле завдання. Ось що вже можна робити.",
     "enlarge": "Збільшити скриншот",
     "close": "Закрити скриншот",
-    "imageNote": "Знято в PaNasMs 0.2.7 23 вересня 2026 року. Інтерфейс англійською; можна перемикати світлу й темну теми. Деякі види обрізано для захисту особистих даних. Форми показано без застосування змін.",
+    "imageNote": "Знято в PaNasMs 0.2.7 23–24 вересня 2026 року. Інтерфейс англійською; можна перемикати світлу й темну теми. Деякі види обрізано для захисту особистих даних. Форми показано без застосування змін.",
     "features": [
       {
         "id": "files",
@@ -368,13 +394,26 @@
         "id": "modules",
         "tag": "Під ваші завдання",
         "title": "Додавайте те,\nщо потрібно саме вам.",
-        "text": "Установлюйте додаткові можливості з каталогу чи файлу. Файли, Термінал та Cloud Sync мають власні версії та керуються незалежно.",
+        "text": "Установлюйте додаткові можливості з каталогу чи файлу. Файли, Термінал, Cloud Sync та «Контейнери та застосунки» мають власні версії та керуються незалежно.",
         "points": [
           "Установлення з каталогу чи архіву, облік залежностей",
           "Власні репозиторії модулів",
           "Вкладки термінала працюють при переході до іншого розділу"
         ],
         "caption": "Модулі · встановлені застосунки та їхній стан"
+      },
+      {
+        "id": "containers",
+        "tag": "Docker",
+        "title": "Не лише сховище.\nЗапускайте власні сервіси.",
+        "text": "Встановлюваний модуль «Контейнери та застосунки» додає керування Docker до PaNasMs. Запускайте бази даних і вебінструменти, з’єднуйте сервіси та керуйте ними з одного інтерфейсу. Це попередня версія для адміністраторів. Каталог застосунків і розгортання нових Compose-проєктів поки недоступні",
+        "points": [
+          "Пошук образів у Docker Hub або адреса реєстру, вибір тегу та перевірка сумісності з процесором",
+          "Створення контейнерів із завантажених образів: форми для портів, змінних середовища та папок",
+          "Запуск, зупинка, перезапуск, журнали та поточні ресурси; керування мережами й томами",
+          "Виявлення Docker, встановлення відсутніх залежностей і перенесення його сховища через налаштування"
+        ],
+        "caption": "Контейнери та застосунки · база даних і phpMyAdmin працюють на NAS"
       },
       {
         "id": "cloud",
