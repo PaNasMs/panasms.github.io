@@ -20,13 +20,16 @@ python3 -m http.server 4173 --bind 127.0.0.1 --directory public
 
 - `content.json`: translated descriptions, captions and navigation.
 - `build.py`: static HTML, metadata and sitemap generation.
-- `pages/`: English privacy policy, terms of use and Google/GitHub integration guides.
+- `pages/`: English privacy policy, terms of use and Google/GitHub/Dropbox integration guides.
 - [Google setup guide](https://panasms.github.io/docs/setup/google/): OAuth client,
   private-network callback relay, account linking and optional Drive permissions.
   Its five reviewed screenshots live in `assets/google-setup/`.
 - [GitHub setup guide](https://panasms.github.io/docs/setup/github/): OAuth App,
   callback gateway, client secret, account linking and sign-in troubleshooting.
   Its screenshot uses an unsubmitted example form with no credentials.
+- [Dropbox setup guide](https://panasms.github.io/docs/setup/dropbox/): scoped app,
+  account-only permissions, callback gateway, credentials and account linking.
+  Its permission screenshot contains no credentials or personal account information.
 - `style.css`: responsive layout and shared visual styles.
 - `app.js`: screenshot enlargement, Escape dismissal and focus restoration.
 - `assets/screenshots/`: eighteen real English UI screenshots, captured September 23–24, 2026 in light and dark themes.
