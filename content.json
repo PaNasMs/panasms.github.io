@@ -158,7 +158,8 @@
     "guides": "Guides",
     "legalTitle": "Legal",
     "googleLink": "Google setup (EN)",
-    "hardwareFooter": "First NAS build (EN)"
+    "hardwareFooter": "First NAS build (EN)",
+    "githubLink": "GitHub setup (EN)"
   },
   "ru": {
     "title": "PaNasMs — Ваш NAS под рукой",
@@ -319,7 +320,8 @@
     "guides": "Руководства",
     "legalTitle": "Правовая информация",
     "googleLink": "Настройка Google (EN)",
-    "hardwareFooter": "Первая сборка NAS (EN)"
+    "hardwareFooter": "Первая сборка NAS (EN)",
+    "githubLink": "Настройка GitHub (EN)"
   },
   "uk": {
     "title": "PaNasMs — Ваш NAS під рукою",
@@ -480,6 +482,7 @@
     "guides": "Посібники",
     "legalTitle": "Правова інформація",
     "googleLink": "Налаштування Google (EN)",
-    "hardwareFooter": "Перша збірка NAS (EN)"
+    "hardwareFooter": "Перша збірка NAS (EN)",
+    "githubLink": "Налаштування GitHub (EN)"
   }
 }
