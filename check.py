@@ -36,9 +36,9 @@ class Page(HTMLParser):
             self.images += 1
 
 pages = {p.resolve(): Page(p) for p in ROOT.rglob('*.html')}
-assert len(pages) == 9
+assert len(pages) == 10
 for path, page in pages.items():
-    assert page.images == (0 if path.parent.name in ("privacy", "terms") else 1 if path.parent.name in ("github", "dropbox") else 5 if path.parent.name == "google" else 6 if path.parent.name == "rpi_radxa_penta" else 20), (path, page.images)
+    assert page.images == (0 if path.parent.name in ("privacy", "terms", "install") else 1 if path.parent.name in ("github", "dropbox") else 5 if path.parent.name == "google" else 6 if path.parent.name == "rpi_radxa_penta" else 20), (path, page.images)
     for link in page.links:
         url = urlsplit(link)
         if url.scheme or url.netloc:

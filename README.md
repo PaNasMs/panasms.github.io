@@ -95,3 +95,5 @@ Current screenshots: desktop, Files, Storage (complete disks-and-arrays view, in
 user creation, connection sharing, Modules, Cloud Sync folder selection (cropped
 below the account identity), metrics history, and running Docker containers. No setup form was submitted.
 Do not publish private account lists, file contents or credentials.
+
+Installation guide: https://panasms.github.io/docs/setup/install/ (source: `pages/install-setup.html`).
