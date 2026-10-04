@@ -774,3 +774,30 @@ figcaption {
 footer { display: grid; }
 footer > .wrap:not(.footer-links) { display: grid; gap: 24px; }
 footer .legal { margin: 0; }
+
+/* Home interface presentation */
+.compatibility { padding-block: 0 72px; }
+.compatibility h2 { font-size: clamp(26px, 3vw, 36px); }
+.compatibility table { min-width: 580px; }
+.compatibility td:first-child { font-weight: 650; color: var(--ink); }
+.compatibility th { background: #eaf0e9; }
+.mobile-story { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr); gap: 80px; align-items: center; padding-block: 24px 96px; }
+.mobile-story h2 { margin-bottom: 24px; }
+.mobile-story ul { padding-left: 20px; color: var(--muted); line-height: 1.8; }
+.mobile-story li + li { margin-top: 12px; }
+.mobile-story .shot { max-width: 300px; justify-self: center; }
+.mobile-story .shot img { border-radius: 24px; }
+.feature .shot.users, .feature .shot.network, .feature .shot.cloud { max-width: 640px; justify-self: center; width: 100%; }
+@media (max-width: 760px) {
+ .mobile-story { grid-template-columns: minmax(0, 1fr); gap: 32px; padding-bottom: 56px; }
+ .mobile-story .shot { max-width: 300px; }
+ .compatibility { padding-bottom: 40px; }
+}
+@media (max-width: 600px) {
+ .compatibility table { min-width: 0; }
+ .compatibility thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+ .compatibility tbody, .compatibility tr, .compatibility td { display: block; }
+ .compatibility tr { padding: 16px; border: 1px solid var(--line); border-radius: 16px; background: var(--white); margin-bottom: 12px; }
+ .compatibility td { padding: 6px 0; border: 0; }
+ .compatibility td::before { content: attr(data-label); display: block; color: var(--muted); font-size: 12px; font-weight: 400; margin-bottom: 4px; }
+}

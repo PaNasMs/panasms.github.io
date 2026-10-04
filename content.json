@@ -9,22 +9,22 @@
     "github": "View on GitHub",
     "eyebrow": "Pavlo's NAS Management System",
     "heroTitle": "Your NAS.\nWithin reach.",
-    "heroText": "A browser-based home for your DIY ARM64 NAS. Manage files, disks, users and network connections, with optional modules for the things you need.",
+    "heroText": "A browser-based home for your DIY NAS — on Raspberry Pi or an x64 Linux machine. Manage storage, files, people and apps from your computer or phone.",
     "explore": "Take a look inside",
     "status": "In active development",
-    "heroCaption": "Your desktop: shortcuts and live system widgets, arranged your way.",
+    "heroCaption": "The new Home desktop · live widgets, shortcuts and background tasks",
     "introLabel": "A familiar place to manage it all",
     "introTitle": "Less guesswork.\nMore control.",
     "introText": "From moving a folder to checking a disk, each part of PaNasMs has a clear job. Here is what you can do today.",
     "enlarge": "Enlarge screenshot",
     "close": "Close screenshot",
-    "imageNote": "Captured from PaNasMs 0.2.7 on September 23–24, 2026. All screenshots use English; switch between light and dark themes. Cropped views keep personal data out. Setup forms are examples, not submitted changes.",
+    "imageNote": "Real English UI captured on October 4, 2026, with PaNasMs 0.2.15 and the updated modules. Desktop and 390 px mobile views; light and dark themes. Some views are cropped to keep account details and device identifiers private. Setup forms were not submitted.",
     "features": [
       {
         "id": "files",
         "tag": "Files",
         "title": "Your folders,\nwhere you expect them.",
-        "text": "Browse local storage and connected network folders in one place. Upload files by dropping them into the browser, organise folders and recover items from the trash.",
+        "text": "Browse local storage, network folders, Google Drive and Dropbox. Copy and move files between locations and accounts; uploads and file operations run in the background while you use other sections.",
         "points": [
           "Bulk copy, move and delete with conflict choices",
           "Background transfers continue across module navigation",
@@ -42,7 +42,7 @@
           "Scheduled SMART tests and their results",
           "Partitions, local/remote mounts, disk sleep and cooling"
         ],
-        "caption": "Storage · four disks in a RAID 5 array"
+        "caption": "Storage · local volumes grouped by device"
       },
       {
         "id": "users",
@@ -66,7 +66,7 @@
           "Connection sharing with multiple adapters",
           "Confirmation and rollback for network changes"
         ],
-        "caption": "Network · choose where to share a connection"
+        "caption": "Network · access-point setup (unsubmitted)"
       },
       {
         "id": "modules",
@@ -95,15 +95,15 @@
       },
       {
         "id": "cloud",
-        "tag": "Google Drive",
+        "tag": "Google Drive · Dropbox",
         "title": "Choose the folders.\nChoose the direction.",
-        "text": "Connect multiple Google accounts and create separate sync tasks. Select a folder on your NAS and one in Google Drive, then choose download, upload or two-way synchronization.",
+        "text": "Connect multiple Google Drive and Dropbox accounts. Choose one folder on the NAS and one in the cloud for each task, then select download, upload or two-way synchronization.",
         "points": [
           "Three-step setup with visual folder selection",
           "Pause, retry and inspect sync history",
-          "Google account linking and sign-in; Drive access is authorized separately"
+          "Shared external connections with permissions granted to each module"
         ],
-        "caption": "Cloud Sync · folder and direction step (cropped)"
+        "caption": "Cloud Sync · start a new synchronization task"
       },
       {
         "id": "history",
@@ -113,28 +113,28 @@
         "points": [
           "Hour, day and week views",
           "Desktop widgets for live system and cooling status",
-          "Background tasks and actionable notifications"
+          "Notification rules for email, Telegram and browser push (setup required)"
         ],
-        "caption": "Metrics history · CPU and memory over the last hour"
+        "caption": "Metrics history · CPU and memory over the day"
       }
     ],
     "getLabel": "Ready to explore?",
     "getTitle": "Start with your hardware.\nKeep your Linux.",
     "getText": "PaNasMs installs as a Debian package on top of Linux. It is not a separate bootable operating-system image.",
     "requirementsTitle": "What you need",
-    "requirements": "A DIY ARM64 NAS running Debian 13 or Raspberry Pi OS based on Debian 13, a Linux administrator account and internet access for dependencies. Our reference device is Raspberry Pi 5. x64 (AMD64) support is planned; it is not tested or ready yet.",
+    "requirements": "A supported 64-bit Linux system, a password-enabled Linux administrator account, internet access and at least 2 GiB of free system space. The installer selects ARM64 or AMD64 and installs system dependencies.",
     "steps": [
       [
-        "Choose the ARM64 package",
-        "Read the installation guide and select a current testing build for your DIY NAS."
+        "Prepare Linux",
+        "Start with a supported OS and an administrator account."
       ],
       [
-        "Install with dependencies",
-        "APT installs PaNasMs and the system tools it needs, including RAID and file-sharing services."
+        "Run one installation command",
+        "Follow the guide: the installer verifies the package and installs dependencies, including RAID and file-sharing tools."
       ],
       [
-        "Open your browser",
-        "Complete the initial configuration, then sign in with your Linux administrator account."
+        "Open the NAS in your browser",
+        "Sign in with your Linux administrator account, then add the modules you need."
       ]
     ],
     "installLink": "Read the installation guide",
@@ -147,8 +147,8 @@
     "credits": "Image credits",
     "licenseText": "Source available under PolyForm Noncommercial 1.0.0. Commercial use is restricted; see the license terms.",
     "creditsText": "Interface: PaNasMs. Wallpaper visible in screenshots: Flow by Sandra Smukaste, from KDE, licensed under CC BY-SA 4.0. Screenshots are cropped views of the running application.",
-    "platformTitle": "Made for DIY ARM64 NAS builds.",
-    "platformText": "Start with your own board, drives and enclosure. PaNasMs is developed and tested on our Raspberry Pi 5 NAS. Support for x64 (AMD64) is planned, but has not been tested or brought to a supported state.",
+    "platformTitle": "Your hardware. Your Linux. Your NAS.",
+    "platformText": "Install PaNasMs on an existing Linux system. ARM64 is tested on our Raspberry Pi 5 build; x64 installation and core workflows have also been checked in Proxmox virtual machines. Hardware-dependent features still need compatible devices.",
     "hardwareLink": "Meet our first NAS build",
     "hardwareText": "Raspberry Pi 5 + Radxa Penta SATA HAT · assembly photos, parts and disk cooling wiring.",
     "light": "Light",
@@ -160,7 +160,44 @@
     "googleLink": "Google setup (EN)",
     "hardwareFooter": "First NAS build (EN)",
     "githubLink": "GitHub setup (EN)",
-    "dropboxLink": "Dropbox setup (EN)"
+    "dropboxLink": "Dropbox setup (EN)",
+    "mobileLabel": "Built for more than one screen",
+    "mobileTitle": "At your desk.\nOr in your hand.",
+    "mobileText": "The same NAS, in your phone’s browser. Navigation moves to the bottom, section lists open as a sheet, and dense views become touch-friendly cards. No separate mobile app is required.",
+    "mobilePoints": [
+      "Separate desktop layouts and pinned shortcuts for computer and phone",
+      "Labelled actions and bottom-sheet dialogs on small screens",
+      "Light, dark and translucent themes; English, Russian and Ukrainian"
+    ],
+    "mobileCaption": "Phone layout · Modules at 390 px width",
+    "platformHeaders": [
+      "Operating system",
+      "Architecture",
+      "Validation"
+    ],
+    "platformRows": [
+      [
+        "Raspberry Pi OS 13 (64-bit)",
+        "ARM64",
+        "Tested on Raspberry Pi 5 + Radxa Penta SATA HAT"
+      ],
+      [
+        "Debian 13",
+        "ARM64 / AMD64",
+        "AMD64 installation and core workflows tested in a VM"
+      ],
+      [
+        "Ubuntu 24.04 LTS",
+        "AMD64",
+        "Installation and core workflows tested in a VM"
+      ],
+      [
+        "Armbian",
+        "ARM64",
+        "Planned; not yet validated or listed as a supported installer target"
+      ]
+    ],
+    "platformNote": "Use the exact distributions and versions above. Ubuntu ARM64, other Ubuntu releases and the Red Hat family are not supported by the current installer. VM checks do not certify every x64 computer."
   },
   "ru": {
     "title": "PaNasMs — Ваш NAS под рукой",
@@ -172,22 +209,22 @@
     "github": "Открыть GitHub",
     "eyebrow": "Pavlo's NAS Management System",
     "heroTitle": "Ваш NAS.\nВсё под рукой.",
-    "heroText": "Веб-панель для вашего DIY NAS на ARM64. Файлы, диски, пользователи и сетевые подключения в одном месте, с дополнительными модулями под ваши задачи.",
+    "heroText": "Ваш DIY NAS в браузере — на Raspberry Pi или компьютере x64 с Linux. Управляйте хранилищем, файлами, пользователями и приложениями с компьютера или телефона.",
     "explore": "Посмотреть возможности",
     "status": "Активно развивается",
-    "heroCaption": "Ваш рабочий стол: значки и виджеты состояния, расположенные так, как удобно вам.",
+    "heroCaption": "Новый рабочий стол Home · виджеты, ярлыки и фоновые задачи",
     "introLabel": "Знакомый подход к управлению",
     "introTitle": "Меньше догадок.\nБольше контроля.",
     "introText": "Переместить папку или проверить диск — у каждого раздела PaNasMs своя понятная задача. Вот что уже можно делать.",
     "enlarge": "Увеличить скриншот",
     "close": "Закрыть скриншот",
-    "imageNote": "Снято в PaNasMs 0.2.7 23–24 сентября 2026 года. Интерфейс на английском; можно переключать светлую и тёмную темы. Некоторые виды обрезаны для защиты личных данных. Формы показаны без применения изменений.",
+    "imageNote": "Реальный английский интерфейс PaNasMs 0.2.15 и обновлённых модулей, снятый 4 октября 2026 года. Десктоп и мобильный экран шириной 390 px, светлая и тёмная темы. Некоторые снимки обрезаны, чтобы скрыть данные аккаунтов и идентификаторы устройств. Формы настройки не отправлялись.",
     "features": [
       {
         "id": "files",
         "tag": "Файлы",
         "title": "Ваши папки.\nНа привычных местах.",
-        "text": "Работайте с локальными и подключёнными сетевыми папками в одном окне. Загружайте файлы перетаскиванием, наводите порядок и возвращайте удалённое из корзины.",
+        "text": "Работайте с локальными и сетевыми папками, Google Drive и Dropbox. Копируйте и перемещайте файлы между расположениями и аккаунтами; загрузки и операции идут в фоне, пока вы пользуетесь другими разделами.",
         "points": [
           "Массовое копирование, перенос и удаление с выбором при конфликтах",
           "Фоновые операции продолжаются при переходе в другой модуль",
@@ -205,7 +242,7 @@
           "SMART-проверки по расписанию и их результаты",
           "Разделы, локальные и сетевые тома, сон и охлаждение дисков"
         ],
-        "caption": "Хранилище · четыре диска в массиве RAID 5"
+        "caption": "Хранилище · локальные тома по устройствам"
       },
       {
         "id": "users",
@@ -229,7 +266,7 @@
           "Раздача подключения на несколько адаптеров",
           "Подтверждение и откат сетевых изменений"
         ],
-        "caption": "Сеть · выбор интерфейсов для раздачи подключения"
+        "caption": "Сеть · настройка точки доступа без применения"
       },
       {
         "id": "modules",
@@ -258,15 +295,15 @@
       },
       {
         "id": "cloud",
-        "tag": "Google Drive",
+        "tag": "Google Drive · Dropbox",
         "title": "Выберите папки.\nЗадайте направление.",
-        "text": "Подключайте несколько аккаунтов Google и создавайте отдельные задачи. Выберите папку на NAS и папку в Google Drive, затем задайте загрузку, выгрузку или двустороннюю синхронизацию.",
+        "text": "Подключайте несколько аккаунтов Google Drive и Dropbox. Для каждой задачи выберите папку на NAS и в облаке, затем задайте скачивание, загрузку или двустороннюю синхронизацию.",
         "points": [
           "Три шага настройки с визуальным выбором папок",
           "Пауза, повторный запуск и история синхронизации",
-          "Привязка и вход через Google; доступ к Drive разрешается отдельно"
+          "Общие внешние подключения с разрешениями для каждого модуля"
         ],
-        "caption": "Cloud Sync · выбор папок и направления (фрагмент)"
+        "caption": "Cloud Sync · создание новой задачи синхронизации"
       },
       {
         "id": "history",
@@ -276,28 +313,28 @@
         "points": [
           "История за час, день и неделю",
           "Виджеты состояния системы и охлаждения",
-          "Фоновые задачи и уведомления с действиями"
+          "Правила уведомлений для почты, Telegram и браузерных push (после настройки)"
         ],
-        "caption": "История показателей · процессор и память за последний час"
+        "caption": "История показателей · процессор и память за день"
       }
     ],
     "getLabel": "Хотите попробовать?",
     "getTitle": "Ваше оборудование.\nВаш Linux.",
     "getText": "PaNasMs устанавливается пакетом Debian поверх Linux. Это не отдельный загрузочный образ операционной системы.",
     "requirementsTitle": "Что понадобится",
-    "requirements": "DIY NAS на ARM64 с Debian 13 или Raspberry Pi OS на основе Debian 13, учётная запись администратора Linux и интернет для зависимостей. Эталонная сборка — Raspberry Pi 5. Поддержка x64 (AMD64) запланирована, но пока не протестирована и не доработана.",
+    "requirements": "Поддерживаемый 64-битный Linux, учётная запись администратора Linux с паролем, интернет и минимум 2 ГиБ свободного места в системе. Установщик сам выбирает ARM64 или AMD64 и устанавливает зависимости.",
     "steps": [
       [
-        "Выберите пакет ARM64",
-        "Прочитайте инструкцию и выберите актуальную тестовую сборку для своего DIY NAS."
+        "Подготовьте Linux",
+        "Начните с поддерживаемой ОС и учётной записи администратора."
       ],
       [
-        "Установите с зависимостями",
-        "APT установит PaNasMs и нужные системные инструменты, включая RAID и сетевой доступ к файлам."
+        "Выполните одну команду установки",
+        "Следуйте инструкции: установщик проверит пакет и поставит зависимости, включая инструменты RAID и общих папок."
       ],
       [
-        "Откройте браузер",
-        "Выполните начальную настройку и войдите с учётной записью администратора Linux."
+        "Откройте NAS в браузере",
+        "Войдите под администратором Linux и добавьте нужные модули."
       ]
     ],
     "installLink": "Инструкция установки",
@@ -310,8 +347,8 @@
     "credits": "Авторы изображений",
     "licenseText": "Исходный код доступен по PolyForm Noncommercial 1.0.0. Коммерческое использование ограничено условиями лицензии.",
     "creditsText": "Интерфейс: PaNasMs. Обои на скриншотах: Flow, автор Sandra Smukaste, из коллекции KDE, лицензия CC BY-SA 4.0. Скриншоты — обрезанные виды работающего приложения.",
-    "platformTitle": "Для DIY NAS на ARM64.",
-    "platformText": "Соберите NAS из своей платы, дисков и корпуса. PaNasMs разрабатывается и проверяется на нашем NAS с Raspberry Pi 5. Поддержка x64 (AMD64) запланирована, но пока не тестировалась и не доведена до рабочего поддерживаемого состояния.",
+    "platformTitle": "Ваше железо. Ваш Linux. Ваш NAS.",
+    "platformText": "PaNasMs устанавливается поверх существующего Linux. ARM64 проверен на нашей сборке Raspberry Pi 5; установка и основные сценарии x64 также проверены на виртуалках Proxmox. Для аппаратных функций нужны совместимые устройства.",
     "hardwareLink": "Наша первая сборка NAS",
     "hardwareText": "Raspberry Pi 5 + Radxa Penta SATA HAT · фотографии сборки, компоненты и схемы охлаждения дисков.",
     "light": "Светлая",
@@ -323,7 +360,44 @@
     "googleLink": "Настройка Google (EN)",
     "hardwareFooter": "Первая сборка NAS (EN)",
     "githubLink": "Настройка GitHub (EN)",
-    "dropboxLink": "Настройка Dropbox (EN)"
+    "dropboxLink": "Настройка Dropbox (EN)",
+    "mobileLabel": "Для разных экранов",
+    "mobileTitle": "За компьютером.\nИ с телефона.",
+    "mobileText": "Тот же NAS в браузере телефона. Навигация переходит вниз, список разделов открывается отдельной панелью, а плотные представления превращаются в удобные карточки. Отдельное мобильное приложение не требуется.",
+    "mobilePoints": [
+      "Отдельные рабочие столы и закреплённые ярлыки для компьютера и телефона",
+      "Подписанные действия и диалоги снизу на маленьких экранах",
+      "Светлая, тёмная и полупрозрачные темы; английский, русский и украинский"
+    ],
+    "mobileCaption": "Мобильный интерфейс · модули при ширине 390 px",
+    "platformHeaders": [
+      "Операционная система",
+      "Архитектура",
+      "Проверка"
+    ],
+    "platformRows": [
+      [
+        "Raspberry Pi OS 13 (64-bit)",
+        "ARM64",
+        "Проверено на Raspberry Pi 5 + Radxa Penta SATA HAT"
+      ],
+      [
+        "Debian 13",
+        "ARM64 / AMD64",
+        "Установка и основные сценарии AMD64 проверены на ВМ"
+      ],
+      [
+        "Ubuntu 24.04 LTS",
+        "AMD64",
+        "Установка и основные сценарии проверены на ВМ"
+      ],
+      [
+        "Armbian",
+        "ARM64",
+        "В планах; ещё не проверен и не заявлен как поддерживаемая цель установщика"
+      ]
+    ],
+    "platformNote": "Используйте указанные дистрибутивы и версии. Текущий установщик не поддерживает Ubuntu ARM64, другие версии Ubuntu и семейство Red Hat. Проверка на ВМ не гарантирует совместимость любого компьютера x64."
   },
   "uk": {
     "title": "PaNasMs — Ваш NAS під рукою",
@@ -335,22 +409,22 @@
     "github": "Відкрити GitHub",
     "eyebrow": "Pavlo's NAS Management System",
     "heroTitle": "Ваш NAS.\nУсе під рукою.",
-    "heroText": "Вебпанель для вашого DIY NAS на ARM64. Файли, диски, користувачі та мережеві підключення в одному місці, з додатковими модулями під ваші завдання.",
+    "heroText": "Ваш DIY NAS у браузері — на Raspberry Pi або комп’ютері x64 із Linux. Керуйте сховищем, файлами, користувачами й застосунками з комп’ютера або телефона.",
     "explore": "Переглянути можливості",
     "status": "Активно розвивається",
-    "heroCaption": "Ваш робочий стіл: значки й віджети стану, розташовані так, як зручно вам.",
+    "heroCaption": "Новий робочий стіл Home · віджети, ярлики й фонові завдання",
     "introLabel": "Знайомий підхід до керування",
     "introTitle": "Менше здогадок.\nБільше контролю.",
     "introText": "Перемістити папку чи перевірити диск — кожен розділ PaNasMs має зрозуміле завдання. Ось що вже можна робити.",
     "enlarge": "Збільшити скриншот",
     "close": "Закрити скриншот",
-    "imageNote": "Знято в PaNasMs 0.2.7 23–24 вересня 2026 року. Інтерфейс англійською; можна перемикати світлу й темну теми. Деякі види обрізано для захисту особистих даних. Форми показано без застосування змін.",
+    "imageNote": "Реальний англійський інтерфейс PaNasMs 0.2.15 та оновлених модулів, знятий 4 жовтня 2026 року. Десктоп і мобільний екран завширшки 390 px, світла й темна теми. Деякі знімки обрізано, щоб приховати дані облікових записів та ідентифікатори пристроїв. Форми налаштування не надсилалися.",
     "features": [
       {
         "id": "files",
         "tag": "Файли",
         "title": "Ваші папки.\nНа звичних місцях.",
-        "text": "Працюйте з локальними й підключеними мережевими папками в одному вікні. Завантажуйте файли перетягуванням, наводьте лад і повертайте видалене з кошика.",
+        "text": "Працюйте з локальними й мережевими папками, Google Drive та Dropbox. Копіюйте й переміщуйте файли між розташуваннями та обліковими записами; завантаження й операції працюють у фоні, поки ви користуєтеся іншими розділами.",
         "points": [
           "Масове копіювання, перенесення й видалення з вибором при конфліктах",
           "Фонові операції тривають при переході до іншого модуля",
@@ -368,7 +442,7 @@
           "SMART-перевірки за розкладом і їхні результати",
           "Розділи, локальні й мережеві томи, сон та охолодження дисків"
         ],
-        "caption": "Сховище · чотири диски в масиві RAID 5"
+        "caption": "Сховище · локальні томи за пристроями"
       },
       {
         "id": "users",
@@ -392,7 +466,7 @@
           "Роздача підключення на кілька адаптерів",
           "Підтвердження та відкат мережевих змін"
         ],
-        "caption": "Мережа · вибір інтерфейсів для роздачі підключення"
+        "caption": "Мережа · налаштування точки доступу без застосування"
       },
       {
         "id": "modules",
@@ -421,15 +495,15 @@
       },
       {
         "id": "cloud",
-        "tag": "Google Drive",
+        "tag": "Google Drive · Dropbox",
         "title": "Оберіть папки.\nЗадайте напрямок.",
-        "text": "Підключайте кілька облікових записів Google та створюйте окремі завдання. Оберіть папку на NAS і папку в Google Drive, потім задайте завантаження, вивантаження або двосторонню синхронізацію.",
+        "text": "Підключайте кілька облікових записів Google Drive та Dropbox. Для кожного завдання виберіть папку на NAS і в хмарі, а потім завантаження в один бік або двосторонню синхронізацію.",
         "points": [
           "Три кроки налаштування з візуальним вибором папок",
           "Пауза, повторний запуск та історія синхронізації",
-          "Прив’язування та вхід через Google; доступ до Drive дозволяється окремо"
+          "Спільні зовнішні підключення з дозволами для кожного модуля"
         ],
-        "caption": "Cloud Sync · вибір папок і напрямку (фрагмент)"
+        "caption": "Cloud Sync · створення нового завдання синхронізації"
       },
       {
         "id": "history",
@@ -439,28 +513,28 @@
         "points": [
           "Історія за годину, день і тиждень",
           "Віджети стану системи й охолодження",
-          "Фонові завдання та сповіщення з діями"
+          "Правила сповіщень для пошти, Telegram та браузерних push (після налаштування)"
         ],
-        "caption": "Історія показників · процесор і пам’ять за останню годину"
+        "caption": "Історія показників · процесор і пам’ять за день"
       }
     ],
     "getLabel": "Хочете спробувати?",
     "getTitle": "Ваше обладнання.\nВаш Linux.",
     "getText": "PaNasMs установлюється пакетом Debian поверх Linux. Це не окремий завантажувальний образ операційної системи.",
     "requirementsTitle": "Що знадобиться",
-    "requirements": "DIY NAS на ARM64 з Debian 13 або Raspberry Pi OS на основі Debian 13, обліковий запис адміністратора Linux та інтернет для залежностей. Еталонна збірка — Raspberry Pi 5. Підтримку x64 (AMD64) заплановано, але ще не протестовано й не доопрацьовано.",
+    "requirements": "Підтримуваний 64-бітний Linux, обліковий запис адміністратора Linux із паролем, інтернет і щонайменше 2 ГіБ вільного місця в системі. Інсталятор сам вибирає ARM64 або AMD64 та встановлює залежності.",
     "steps": [
       [
-        "Оберіть пакет ARM64",
-        "Прочитайте інструкцію й оберіть актуальну тестову збірку для свого DIY NAS."
+        "Підготуйте Linux",
+        "Почніть із підтримуваної ОС та облікового запису адміністратора."
       ],
       [
-        "Установіть із залежностями",
-        "APT установлює PaNasMs і потрібні системні інструменти, включно з RAID і мережевим доступом до файлів."
+        "Виконайте одну команду встановлення",
+        "Дотримуйтеся інструкції: інсталятор перевірить пакет і встановить залежності, зокрема інструменти RAID та спільних папок."
       ],
       [
-        "Відкрийте браузер",
-        "Виконайте початкове налаштування й увійдіть з обліковим записом адміністратора Linux."
+        "Відкрийте NAS у браузері",
+        "Увійдіть як адміністратор Linux і додайте потрібні модулі."
       ]
     ],
     "installLink": "Інструкція встановлення",
@@ -473,8 +547,8 @@
     "credits": "Автори зображень",
     "licenseText": "Вихідний код доступний за PolyForm Noncommercial 1.0.0. Комерційне використання обмежено умовами ліцензії.",
     "creditsText": "Інтерфейс: PaNasMs. Шпалери на скриншотах: Flow, авторка Sandra Smukaste, з колекції KDE, ліцензія CC BY-SA 4.0. Скриншоти — обрізані види застосунку, що працює.",
-    "platformTitle": "Для DIY NAS на ARM64.",
-    "platformText": "Зберіть NAS зі своєї плати, дисків і корпусу. PaNasMs розробляється й перевіряється на нашому NAS із Raspberry Pi 5. Підтримку x64 (AMD64) заплановано, але її ще не протестовано й не доведено до підтримуваного робочого стану.",
+    "platformTitle": "Ваше обладнання. Ваш Linux. Ваш NAS.",
+    "platformText": "PaNasMs установлюється поверх наявного Linux. ARM64 перевірено на нашій збірці Raspberry Pi 5; установлення й основні сценарії x64 також перевірено на віртуальних машинах Proxmox. Апаратні функції потребують сумісних пристроїв.",
     "hardwareLink": "Наша перша збірка NAS",
     "hardwareText": "Raspberry Pi 5 + Radxa Penta SATA HAT · фото складання, компоненти та схеми охолодження дисків.",
     "light": "Світла",
@@ -486,6 +560,43 @@
     "googleLink": "Налаштування Google (EN)",
     "hardwareFooter": "Перша збірка NAS (EN)",
     "githubLink": "Налаштування GitHub (EN)",
-    "dropboxLink": "Налаштування Dropbox (EN)"
+    "dropboxLink": "Налаштування Dropbox (EN)",
+    "mobileLabel": "Для різних екранів",
+    "mobileTitle": "За комп’ютером.\nІ з телефона.",
+    "mobileText": "Той самий NAS у браузері телефона. Навігація переходить униз, список розділів відкривається окремою панеллю, а щільні подання перетворюються на зручні картки. Окремий мобільний застосунок не потрібен.",
+    "mobilePoints": [
+      "Окремі робочі столи й закріплені ярлики для комп’ютера та телефона",
+      "Підписані дії та діалоги знизу на малих екранах",
+      "Світла, темна й напівпрозорі теми; англійська, російська та українська"
+    ],
+    "mobileCaption": "Мобільний інтерфейс · модулі за ширини 390 px",
+    "platformHeaders": [
+      "Операційна система",
+      "Архітектура",
+      "Перевірка"
+    ],
+    "platformRows": [
+      [
+        "Raspberry Pi OS 13 (64-bit)",
+        "ARM64",
+        "Перевірено на Raspberry Pi 5 + Radxa Penta SATA HAT"
+      ],
+      [
+        "Debian 13",
+        "ARM64 / AMD64",
+        "Установлення й основні сценарії AMD64 перевірено на ВМ"
+      ],
+      [
+        "Ubuntu 24.04 LTS",
+        "AMD64",
+        "Установлення й основні сценарії перевірено на ВМ"
+      ],
+      [
+        "Armbian",
+        "ARM64",
+        "У планах; ще не перевірено й не заявлено як підтримувану ціль інсталятора"
+      ]
+    ],
+    "platformNote": "Використовуйте зазначені дистрибутиви й версії. Поточний інсталятор не підтримує Ubuntu ARM64, інші версії Ubuntu та сімейство Red Hat. Перевірка на ВМ не гарантує сумісність кожного комп’ютера x64."
   }
 }

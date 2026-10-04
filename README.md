@@ -5,7 +5,7 @@ The public presentation of **Pavlo's NAS Management System**, at
 
 Each feature is paired with a screenshot of the running application. English is
 the default; Russian and Ukrainian have their own static URLs. Pages work without
-JavaScript; JavaScript only adds an accessible screenshot viewer.
+JavaScript; JavaScript adds theme selection and an accessible screenshot viewer.
 
 ## Build and preview
 
@@ -29,10 +29,10 @@ python3 -m http.server 4173 --bind 127.0.0.1 --directory public
   Its screenshot uses an unsubmitted example form with no credentials.
 - [Dropbox setup guide](https://panasms.github.io/docs/setup/dropbox/): scoped app,
   account-only permissions, callback gateway, credentials and account linking.
-  Its permission screenshot contains no credentials or personal account information.
+  Its permission screenshot contains no credentials or personal account information. The guide lists both account-linking and optional Cloud Sync file permissions.
 - `style.css`: responsive layout and shared visual styles.
 - `app.js`: screenshot enlargement, Escape dismissal and focus restoration.
-- `assets/screenshots/`: eighteen real English UI screenshots, captured September 23–24, 2026 in light and dark themes.
+- `assets/screenshots/`: current `home-*.png` captures: 17 real English UI screenshots from October 4, 2026 (PaNasMs 0.2.15, Files 0.3.6, Terminal 0.2.10, Cloud Sync 0.1.20, Containers 0.1.11). Desktop and 390 CSS px phone views include light and dark themes. Older captures remain as historical assets and are not used by the presentation.
 - `public/`: generated website, intentionally ignored by Git.
 
 GitHub Actions checks pull requests and deploys `main` to GitHub Pages. Pages must
@@ -43,7 +43,7 @@ install the NAS software.
 
 Capture the real English UI; do not invent working features. Choose views without
 personal documents, user names, IP/MAC addresses, serial numbers, tokens or
-credentials. Crop at capture time where necessary. Users and network images show
+credentials. Crop at capture time where necessary. Convert browser JPEG captures to PNG without changing their content. Users and network images show
 unsubmitted forms; opening them did not create users or change the network.
 The Files image shows generic system folders. No NAS API or private address is
 embedded in the website. Review every replacement image before committing it.
@@ -97,3 +97,9 @@ below the account identity), metrics history, and running Docker containers. No 
 Do not publish private account lists, file contents or credentials.
 
 Installation guide: https://panasms.github.io/docs/setup/install/ (source: `pages/install-setup.html`).
+
+## Platform and responsive presentation
+
+The OS matrix follows `PaNasMs/updates/scripts/install.py`: Debian 13 (ARM64/AMD64), Raspberry Pi OS 13 (ARM64), and Ubuntu 24.04 LTS (AMD64). Physical validation is on Raspberry Pi 5; Debian and Ubuntu AMD64 were tested in Proxmox VMs. Armbian is explicitly planned/unvalidated, not advertised as an enabled installer target.
+
+The phone section shows the real 390 CSS px Modules layout: bottom taskbar, labelled actions and stacked cards. Screenshots demonstrate layouts, not complete accessibility or device certification. Figures offer theme controls only when both current-theme captures exist. Files and Network currently show light captures; Cloud Sync shows a dark capture. Other figures have both.
