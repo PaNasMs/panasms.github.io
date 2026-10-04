@@ -801,3 +801,8 @@ footer .legal { margin: 0; }
  .compatibility td { padding: 6px 0; border: 0; }
  .compatibility td::before { content: attr(data-label); display: block; color: var(--muted); font-size: 12px; font-weight: 400; margin-bottom: 4px; }
 }
+
+.feature-usecase { margin-top: 28px; padding-left: 20px; border-left: 3px solid var(--green); }
+.feature-usecase h3 { margin-bottom: 14px; }
+.feature-usecase p:last-child { margin-bottom: 0; }
+.feature-usecase .usecase-note { font-size: 14px; }

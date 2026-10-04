@@ -64,9 +64,13 @@
         "points": [
           "Ethernet and Wi-Fi in one place",
           "Connection sharing with multiple adapters",
-          "Confirmation and rollback for network changes"
+          "Confirmation and rollback for network changes",
+          "Fallback hotspot: enabled by default when a compatible Wi-Fi adapter is detected; configurable or switchable off in Settings → Network"
         ],
-        "caption": "Network · access-point setup (unsubmitted)"
+        "caption": "Network · access-point setup (unsubmitted)",
+        "useCaseTitle": "Your NAS, in your backpack.",
+        "useCaseText": "Take a compact NAS with you, plug it into power and access your files from a laptop or phone. If it cannot connect to a wired or Wi-Fi network, PaNasMs can start its own password-protected Wi-Fi hotspot after a configurable wait. Join that network and open the NAS in your browser — no router or internet connection is needed for local files.",
+        "useCaseNote": "Save the hotspot name and password before travelling; both are available in Settings → Network. A Wi-Fi adapter that supports access-point mode is required."
       },
       {
         "id": "modules",
@@ -264,9 +268,13 @@
         "points": [
           "Ethernet и Wi-Fi в одном разделе",
           "Раздача подключения на несколько адаптеров",
-          "Подтверждение и откат сетевых изменений"
+          "Подтверждение и откат сетевых изменений",
+          "Резервная точка доступа включена по умолчанию при обнаружении совместимого Wi-Fi-адаптера; её можно настроить или отключить в «Настройки → Сеть»"
         ],
-        "caption": "Сеть · настройка точки доступа без применения"
+        "caption": "Сеть · настройка точки доступа без применения",
+        "useCaseTitle": "Ваш NAS — в рюкзаке.",
+        "useCaseText": "Возьмите компактный NAS с собой, подключите питание и работайте с файлами с ноутбука или телефона. Если NAS не подключился к проводной сети или Wi-Fi, PaNasMs после настраиваемого ожидания может запустить собственную защищённую паролем Wi-Fi-точку. Подключитесь к ней и откройте NAS в браузере — для локальных файлов не нужны ни роутер, ни интернет.",
+        "useCaseNote": "Перед поездкой сохраните имя сети и пароль из «Настройки → Сеть». Нужен Wi-Fi-адаптер с поддержкой режима точки доступа."
       },
       {
         "id": "modules",
@@ -464,9 +472,13 @@
         "points": [
           "Ethernet і Wi-Fi в одному розділі",
           "Роздача підключення на кілька адаптерів",
-          "Підтвердження та відкат мережевих змін"
+          "Підтвердження та відкат мережевих змін",
+          "Резервна точка доступу ввімкнена за замовчуванням, якщо виявлено сумісний Wi-Fi-адаптер; її можна налаштувати або вимкнути в «Налаштування → Мережа»"
         ],
-        "caption": "Мережа · налаштування точки доступу без застосування"
+        "caption": "Мережа · налаштування точки доступу без застосування",
+        "useCaseTitle": "Ваш NAS — у рюкзаку.",
+        "useCaseText": "Візьміть компактний NAS із собою, підключіть живлення й працюйте з файлами з ноутбука або телефона. Якщо NAS не підключився до дротової мережі чи Wi-Fi, PaNasMs після налаштовуваного очікування може запустити власну захищену паролем Wi-Fi-точку. Підключіться до неї та відкрийте NAS у браузері — для локальних файлів не потрібні ані роутер, ані інтернет.",
+        "useCaseNote": "Перед поїздкою збережіть назву мережі та пароль із «Налаштування → Мережа». Потрібен Wi-Fi-адаптер із підтримкою режиму точки доступу."
       },
       {
         "id": "modules",
