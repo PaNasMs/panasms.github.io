@@ -48,10 +48,9 @@ unsubmitted forms; opening them did not create users or change the network.
 The Files image shows generic system folders. No NAS API or private address is
 embedded in the website. Review every replacement image before committing it.
 
-The page describes the current prototype honestly. Update its development/release
-status when the first stable version is actually published. Installation links
-point to the maintained backend instructions and build workflow rather than an
-expiring package URL.
+The page presents stable 0.2.15 and links to its release notes. Installation uses
+the stable channel by default. Feature descriptions retain hardware and module
+limitations; screenshots are labelled with their original capture date.
 
 ## Licensing and image credits
 

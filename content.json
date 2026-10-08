@@ -11,14 +11,14 @@
     "heroTitle": "Your NAS.\nWithin reach.",
     "heroText": "A browser-based home for your DIY NAS — on Raspberry Pi or an x64 Linux machine. Manage storage, files, people and apps from your computer or phone.",
     "explore": "Take a look inside",
-    "status": "In active development",
+    "status": "Stable 0.2.15 is available",
     "heroCaption": "The new Home desktop · live widgets, shortcuts and background tasks",
     "introLabel": "A familiar place to manage it all",
     "introTitle": "Less guesswork.\nMore control.",
     "introText": "From moving a folder to checking a disk, each part of PaNasMs has a clear job. Here is what you can do today.",
     "enlarge": "Enlarge screenshot",
     "close": "Close screenshot",
-    "imageNote": "Real English UI captured on October 4, 2026, with PaNasMs 0.2.15 and the updated modules. Desktop and 390 px mobile views; light and dark themes. Some views are cropped to keep account details and device identifiers private. Setup forms were not submitted.",
+    "imageNote": "Real English UI screenshots captured on October 4, 2026 during the 0.2.15 release cycle. Desktop and 390 px mobile views, with light and dark themes. Some views are cropped to protect account details and device identifiers. Screenshots illustrate the interface; they do not show every feature described here.",
     "features": [
       {
         "id": "files",
@@ -38,11 +38,17 @@
         "title": "Know what is\nhappening to your disks.",
         "text": "See your drives and disk arrays together. Check temperatures and health, manage partitions and mounts, and follow the progress of RAID maintenance.",
         "points": [
-          "RAID maintenance with progress and pause/resume",
-          "Scheduled SMART tests and their results",
-          "Partitions, local/remote mounts, disk sleep and cooling"
+          "Create filesystems and manage local volumes or remote SMB/NFS mounts",
+          "Manage RAID maintenance, progress and supported pause/resume operations",
+          "Encrypt volumes with LUKS; unlock manually or configure automatic unlocking at startup",
+          "Set an idle timeout: disks sleep when unused and wake automatically when files are accessed",
+          "Schedule SMART checks, review results and follow disk temperatures",
+          "On supported hardware, select external or built-in PWM cooling; stop the disk fan when all disks sleep"
         ],
-        "caption": "Storage · local volumes grouped by device"
+        "caption": "Storage · local volumes grouped by device",
+        "useCaseTitle": "Encrypted storage, ready after boot.",
+        "useCaseText": "Keep a LUKS unlock key on the system microSD to mount your encrypted volume automatically at startup — useful for home folders and Docker data. Manual unlocking remains an option.",
+        "useCaseNote": "A key stored with the NAS protects a removed data disk, but not against someone who takes both the disk and its unlock key. Keep the recovery passphrase and backups separately."
       },
       {
         "id": "users",
@@ -52,7 +58,9 @@
         "points": [
           "Linux users, groups, SSH keys and session controls",
           "SMB/NFS shares with explicit access permissions",
-          "Personal language, theme, wallpaper and desktop layout"
+          "Move home folders with their contents and update affected user paths",
+          "Link multiple external accounts; sign in with Google or GitHub",
+          "Personal language, theme, wallpaper and separate phone/desktop layouts"
         ],
         "caption": "Users and groups · create-user form"
       },
@@ -78,9 +86,10 @@
         "title": "Add the tools\nyou actually need.",
         "text": "Install optional features from the catalog or a package file. Files, Terminal, Cloud Sync and Containers and applications have their own versions and can be managed independently.",
         "points": [
-          "Install from a catalog or archive; manage dependencies",
-          "Add your own module repositories",
-          "Terminal tabs stay active when you switch modules"
+          "Signed packages, processor compatibility and dependency checks",
+          "Install from the catalog or an archive; add your own repositories",
+          "Persistent Terminal sessions and multiple tabs across section navigation",
+          "Signed system updates with a backup, health checks and recovery after interrupted installation"
         ],
         "caption": "Modules · installed apps and their status"
       },
@@ -90,10 +99,11 @@
         "title": "More than storage.\nRun your own services.",
         "text": "The optional Containers and applications module brings Docker into PaNasMs. Run a database or a web tool, connect services and manage them from the same interface. This is an administrator-only preview. Application catalog and new Compose deployment are not available in this preview",
         "points": [
-          "Find images on Docker Hub or use a registry address; choose a tag and check processor compatibility",
-          "Create containers from downloaded images with forms for ports, environment variables and folders",
-          "Start, stop and restart; inspect logs and live resource use; manage networks and volumes",
-          "Detect existing Docker, install missing dependencies and move its storage from settings"
+          "Search Docker Hub or enter a registry address; choose tags and check architecture",
+          "Create containers with forms for ports, environment variables, networks and folders",
+          "Inspect logs and live resources; manage networks and volumes",
+          "Open web apps from desktop shortcuts; optionally proxy apps that support a URL subpath",
+          "Use existing Docker or install missing components; relocate Docker storage from settings"
         ],
         "caption": "Containers and applications · a database and phpMyAdmin running on the NAS"
       },
@@ -115,9 +125,10 @@
         "title": "See the pattern,\nnot just the moment.",
         "text": "Keep an eye on CPU and memory use, disk activity and network traffic over time. Collection continues while the browser is closed.",
         "points": [
-          "Hour, day and week views",
-          "Desktop widgets for live system and cooling status",
-          "Notification rules for email, Telegram and browser push (setup required)"
+          "Hour, day and week views; collection continues without an open browser",
+          "Desktop widgets for RAID health, temperatures and cooling",
+          "Route each notification severity to one or more channels: email, Telegram and browser push",
+          "Notifications use the user’s language; delivery requires channel setup, and browser push requires HTTPS and permission"
         ],
         "caption": "Metrics history · CPU and memory over the day"
       }
@@ -142,9 +153,9 @@
       ]
     ],
     "installLink": "Read the installation guide",
-    "buildLink": "Browse test builds",
-    "development": "An evolving project, not a finished appliance.",
-    "developmentText": "The stable channel does not have a release yet. Current builds are for testing. Keep backups of important files; RAID is not a backup. Wi-Fi access points and fan control require compatible hardware.",
+    "buildLink": "Read the release notes",
+    "development": "First stable release · 0.2.15",
+    "developmentText": "Signed packages for ARM64 and x64 are available in the stable channel. Existing installations can switch to Stable in Settings → System updates. Keep backups: RAID and encryption do not replace them. Hardware features depend on your board and adapters.",
     "footerDescription": "A browser-based home for your NAS.",
     "source": "Source code",
     "license": "License",
@@ -215,14 +226,14 @@
     "heroTitle": "Ваш NAS.\nВсё под рукой.",
     "heroText": "Ваш DIY NAS в браузере — на Raspberry Pi или компьютере x64 с Linux. Управляйте хранилищем, файлами, пользователями и приложениями с компьютера или телефона.",
     "explore": "Посмотреть возможности",
-    "status": "Активно развивается",
+    "status": "Доступна стабильная версия 0.2.15",
     "heroCaption": "Новый рабочий стол Home · виджеты, ярлыки и фоновые задачи",
     "introLabel": "Знакомый подход к управлению",
     "introTitle": "Меньше догадок.\nБольше контроля.",
     "introText": "Переместить папку или проверить диск — у каждого раздела PaNasMs своя понятная задача. Вот что уже можно делать.",
     "enlarge": "Увеличить скриншот",
     "close": "Закрыть скриншот",
-    "imageNote": "Реальный английский интерфейс PaNasMs 0.2.15 и обновлённых модулей, снятый 4 октября 2026 года. Десктоп и мобильный экран шириной 390 px, светлая и тёмная темы. Некоторые снимки обрезаны, чтобы скрыть данные аккаунтов и идентификаторы устройств. Формы настройки не отправлялись.",
+    "imageNote": "Реальные скриншоты английского интерфейса от 4 октября 2026 года, сделанные при подготовке 0.2.15. Десктоп и мобильный экран шириной 390 px, светлая и тёмная темы. Некоторые изображения обрезаны для защиты данных аккаунтов и идентификаторов устройств. Скриншоты показывают интерфейс, а не все описанные возможности.",
     "features": [
       {
         "id": "files",
@@ -242,11 +253,17 @@
         "title": "Знайте, что происходит\nс вашими дисками.",
         "text": "Накопители и массивы видны вместе. Следите за температурой и состоянием, управляйте разделами и монтированием, наблюдайте за прогрессом обслуживания RAID.",
         "points": [
-          "Обслуживание RAID: прогресс, пауза и продолжение",
-          "SMART-проверки по расписанию и их результаты",
-          "Разделы, локальные и сетевые тома, сон и охлаждение дисков"
+          "Создание файловых систем, локальные тома и сетевые подключения SMB/NFS",
+          "Обслуживание RAID с прогрессом и поддерживаемыми операциями паузы и продолжения",
+          "Шифрование LUKS: ручная разблокировка или автоматическая при запуске",
+          "Настраиваемый таймер простоя: диски засыпают без работы и просыпаются при обращении к файлам",
+          "SMART-проверки по расписанию, результаты и температуры дисков",
+          "На совместимом оборудовании — внешний или встроенный PWM; остановка вентилятора корзины, когда все диски спят"
         ],
-        "caption": "Хранилище · локальные тома по устройствам"
+        "caption": "Хранилище · локальные тома по устройствам",
+        "useCaseTitle": "Зашифрованное хранилище, готовое после загрузки.",
+        "useCaseText": "Ключ LUKS на системной microSD позволяет автоматически разблокировать и смонтировать том при запуске — удобно для домашних папок и Docker. Можно оставить и ручную разблокировку.",
+        "useCaseNote": "Ключ рядом с NAS защищает отдельно снятый диск, но не от кражи диска вместе с ключом. Пароль восстановления и резервные копии храните отдельно."
       },
       {
         "id": "users",
@@ -254,9 +271,11 @@
         "title": "Каждому — своё место.\nДоступ решаете вы.",
         "text": "Используйте существующие учётные записи Linux. Создавайте пользователей и группы, выбирайте домашние папки и управляйте доступом к общим папкам по SMB или NFS.",
         "points": [
-          "Пользователи Linux, группы, SSH-ключи и управление сеансами",
+          "Пользователи и группы Linux, SSH-ключи и управление сеансами",
           "Общие папки SMB/NFS с настройкой доступа",
-          "Личный язык, тема, обои и расположение рабочего стола"
+          "Перенос домашних папок с содержимым и обновлением путей пользователей",
+          "Привязка нескольких внешних аккаунтов; вход через Google или GitHub",
+          "Личный язык, тема, обои и отдельные раскладки телефона и десктопа"
         ],
         "caption": "Пользователи и группы · форма создания пользователя"
       },
@@ -282,9 +301,10 @@
         "title": "Добавляйте то,\nчто нужно именно вам.",
         "text": "Устанавливайте дополнительные возможности из каталога или файла. Файлы, Терминал, Cloud Sync и «Контейнеры и приложения» имеют собственные версии и управляются независимо.",
         "points": [
-          "Установка из каталога или архива, учёт зависимостей",
-          "Собственные репозитории модулей",
-          "Вкладки терминала продолжают работать при смене раздела"
+          "Подписанные пакеты, проверка архитектуры и зависимостей",
+          "Установка из каталога или архива; собственные репозитории",
+          "Несколько вкладок терминала с сохранением сеансов при переходах",
+          "Подписанные обновления системы с резервной копией, проверкой состояния и восстановлением после прерывания"
         ],
         "caption": "Модули · установленные приложения и их состояние"
       },
@@ -294,10 +314,11 @@
         "title": "Не только хранилище.\nЗапускайте свои сервисы.",
         "text": "Устанавливаемый модуль «Контейнеры и приложения» добавляет управление Docker в PaNasMs. Запускайте базы данных и веб-инструменты, соединяйте сервисы и управляйте ими из одного интерфейса. Это предварительная версия для администраторов. Каталог приложений и развёртывание новых Compose-проектов пока недоступны",
         "points": [
-          "Поиск образов в Docker Hub или адрес реестра, выбор тега и проверка совместимости с процессором",
-          "Создание контейнеров из скачанных образов: формы для портов, переменных окружения и папок",
-          "Запуск, остановка, перезапуск, журналы и текущие ресурсы; управление сетями и томами",
-          "Обнаружение Docker, установка недостающих зависимостей и перенос его хранилища через настройки"
+          "Поиск в Docker Hub или адрес реестра, выбор тега и проверка архитектуры",
+          "Формы портов, переменных окружения, сетей и папок при создании контейнера",
+          "Журналы и текущие ресурсы; управление сетями и томами",
+          "Ярлыки веб-приложений на рабочем столе; прокси для приложений с поддержкой подпути URL",
+          "Использование установленного Docker, установка недостающего и перенос его данных из настроек"
         ],
         "caption": "Контейнеры и приложения · база данных и phpMyAdmin работают на NAS"
       },
@@ -319,9 +340,10 @@
         "title": "Не только сейчас.\nКартина за период.",
         "text": "Следите за загрузкой процессора, памятью, активностью дисков и сетевым трафиком во времени. Данные собираются и при закрытом браузере.",
         "points": [
-          "История за час, день и неделю",
-          "Виджеты состояния системы и охлаждения",
-          "Правила уведомлений для почты, Telegram и браузерных push (после настройки)"
+          "История за час, день и неделю; сбор продолжается без открытого браузера",
+          "Виджеты состояния RAID, температур и охлаждения",
+          "Для каждого уровня важности — один или несколько каналов: почта, Telegram, браузерные push",
+          "Уведомления на языке пользователя; каналы требуют настройки, push — HTTPS и разрешения браузера"
         ],
         "caption": "История показателей · процессор и память за день"
       }
@@ -346,9 +368,9 @@
       ]
     ],
     "installLink": "Инструкция установки",
-    "buildLink": "Тестовые сборки",
-    "development": "Проект развивается — это ещё не готовый бытовой прибор.",
-    "developmentText": "В стабильном канале пока нет релиза. Текущие сборки предназначены для тестирования. Храните резервные копии важных файлов: RAID не заменяет бэкап. Точка доступа Wi-Fi и управление вентиляторами требуют совместимого оборудования.",
+    "buildLink": "Что вошло в релиз",
+    "development": "Первый стабильный релиз · 0.2.15",
+    "developmentText": "Подписанные пакеты ARM64 и x64 доступны в стабильном канале. На установленном NAS выберите Stable в настройках обновлений. Сохраняйте резервные копии: RAID и шифрование их не заменяют. Аппаратные функции зависят от платы и адаптеров.",
     "footerDescription": "Ваш NAS — в понятном веб-интерфейсе.",
     "source": "Исходный код",
     "license": "Лицензия",
@@ -419,14 +441,14 @@
     "heroTitle": "Ваш NAS.\nУсе під рукою.",
     "heroText": "Ваш DIY NAS у браузері — на Raspberry Pi або комп’ютері x64 із Linux. Керуйте сховищем, файлами, користувачами й застосунками з комп’ютера або телефона.",
     "explore": "Переглянути можливості",
-    "status": "Активно розвивається",
+    "status": "Доступна стабільна версія 0.2.15",
     "heroCaption": "Новий робочий стіл Home · віджети, ярлики й фонові завдання",
     "introLabel": "Знайомий підхід до керування",
     "introTitle": "Менше здогадок.\nБільше контролю.",
     "introText": "Перемістити папку чи перевірити диск — кожен розділ PaNasMs має зрозуміле завдання. Ось що вже можна робити.",
     "enlarge": "Збільшити скриншот",
     "close": "Закрити скриншот",
-    "imageNote": "Реальний англійський інтерфейс PaNasMs 0.2.15 та оновлених модулів, знятий 4 жовтня 2026 року. Десктоп і мобільний екран завширшки 390 px, світла й темна теми. Деякі знімки обрізано, щоб приховати дані облікових записів та ідентифікатори пристроїв. Форми налаштування не надсилалися.",
+    "imageNote": "Реальні знімки англійського інтерфейсу від 4 жовтня 2026 року, зроблені під час підготовки 0.2.15. Десктоп і мобільний екран шириною 390 px, світла й темна теми. Деякі знімки обрізані для захисту даних облікових записів та ідентифікаторів пристроїв. Знімки ілюструють інтерфейс, а не всі описані можливості.",
     "features": [
       {
         "id": "files",
@@ -446,11 +468,17 @@
         "title": "Знайте, що відбувається\nз вашими дисками.",
         "text": "Накопичувачі й масиви видно разом. Стежте за температурою та станом, керуйте розділами й монтуванням, спостерігайте за обслуговуванням RAID.",
         "points": [
-          "Обслуговування RAID: прогрес, пауза та продовження",
-          "SMART-перевірки за розкладом і їхні результати",
-          "Розділи, локальні й мережеві томи, сон та охолодження дисків"
+          "Створення файлових систем, локальні томи та мережеві підключення SMB/NFS",
+          "Обслуговування RAID із прогресом і підтримуваними операціями паузи та продовження",
+          "Шифрування LUKS: ручне або автоматичне розблокування під час запуску",
+          "Таймер простою: диски засинають без роботи й прокидаються при зверненні до файлів",
+          "SMART-перевірки за розкладом, результати й температури дисків",
+          "На сумісному обладнанні — зовнішній або вбудований PWM; зупинка вентилятора кошика, коли всі диски сплять"
         ],
-        "caption": "Сховище · локальні томи за пристроями"
+        "caption": "Сховище · локальні томи за пристроями",
+        "useCaseTitle": "Зашифроване сховище, готове після завантаження.",
+        "useCaseText": "Ключ LUKS на системній microSD дозволяє автоматично розблокувати й змонтувати том під час запуску — зручно для домашніх папок і Docker. Можна залишити й ручне розблокування.",
+        "useCaseNote": "Ключ поруч із NAS захищає окремо знятий диск, але не від крадіжки диска разом із ключем. Пароль відновлення й резервні копії зберігайте окремо."
       },
       {
         "id": "users",
@@ -458,9 +486,11 @@
         "title": "Кожному — своє місце.\nДоступ вирішуєте ви.",
         "text": "Використовуйте наявні облікові записи Linux. Створюйте користувачів і групи, обирайте домашні папки та керуйте доступом до спільних папок через SMB або NFS.",
         "points": [
-          "Користувачі Linux, групи, SSH-ключі й керування сеансами",
+          "Користувачі й групи Linux, SSH-ключі та керування сеансами",
           "Спільні папки SMB/NFS із налаштуванням доступу",
-          "Особиста мова, тема, шпалери й розташування робочого столу"
+          "Перенесення домашніх папок із вмістом та оновленням шляхів користувачів",
+          "Прив’язка кількох зовнішніх акаунтів; вхід через Google або GitHub",
+          "Власна мова, тема, шпалери та окремі розкладки телефона й десктопа"
         ],
         "caption": "Користувачі та групи · форма створення користувача"
       },
@@ -486,9 +516,10 @@
         "title": "Додавайте те,\nщо потрібно саме вам.",
         "text": "Установлюйте додаткові можливості з каталогу чи файлу. Файли, Термінал, Cloud Sync та «Контейнери та застосунки» мають власні версії та керуються незалежно.",
         "points": [
-          "Установлення з каталогу чи архіву, облік залежностей",
-          "Власні репозиторії модулів",
-          "Вкладки термінала працюють при переході до іншого розділу"
+          "Підписані пакети, перевірка архітектури й залежностей",
+          "Встановлення з каталогу або архіву; власні репозиторії",
+          "Кілька вкладок термінала зі збереженням сеансів під час переходів",
+          "Підписані оновлення системи з резервною копією, перевіркою стану та відновленням після переривання"
         ],
         "caption": "Модулі · встановлені застосунки та їхній стан"
       },
@@ -498,10 +529,11 @@
         "title": "Не лише сховище.\nЗапускайте власні сервіси.",
         "text": "Встановлюваний модуль «Контейнери та застосунки» додає керування Docker до PaNasMs. Запускайте бази даних і вебінструменти, з’єднуйте сервіси та керуйте ними з одного інтерфейсу. Це попередня версія для адміністраторів. Каталог застосунків і розгортання нових Compose-проєктів поки недоступні",
         "points": [
-          "Пошук образів у Docker Hub або адреса реєстру, вибір тегу та перевірка сумісності з процесором",
-          "Створення контейнерів із завантажених образів: форми для портів, змінних середовища та папок",
-          "Запуск, зупинка, перезапуск, журнали та поточні ресурси; керування мережами й томами",
-          "Виявлення Docker, встановлення відсутніх залежностей і перенесення його сховища через налаштування"
+          "Пошук у Docker Hub або адреса реєстру, вибір тегу й перевірка архітектури",
+          "Форми портів, змінних оточення, мереж і папок під час створення контейнера",
+          "Журнали й поточні ресурси; керування мережами та томами",
+          "Ярлики вебзастосунків на робочому столі; проксі для застосунків із підтримкою підшляху URL",
+          "Використання встановленого Docker, встановлення відсутніх компонентів і перенесення даних із налаштувань"
         ],
         "caption": "Контейнери та застосунки · база даних і phpMyAdmin працюють на NAS"
       },
@@ -523,9 +555,10 @@
         "title": "Не лише зараз.\nКартина за період.",
         "text": "Стежте за завантаженням процесора, пам’яттю, активністю дисків і мережевим трафіком у часі. Дані збираються й коли браузер закритий.",
         "points": [
-          "Історія за годину, день і тиждень",
-          "Віджети стану системи й охолодження",
-          "Правила сповіщень для пошти, Telegram та браузерних push (після налаштування)"
+          "Історія за годину, день і тиждень; збір триває без відкритого браузера",
+          "Віджети стану RAID, температур і охолодження",
+          "Для кожного рівня важливості — один або кілька каналів: пошта, Telegram, браузерні push",
+          "Сповіщення мовою користувача; канали потребують налаштування, push — HTTPS і дозволу браузера"
         ],
         "caption": "Історія показників · процесор і пам’ять за день"
       }
@@ -550,9 +583,9 @@
       ]
     ],
     "installLink": "Інструкція встановлення",
-    "buildLink": "Тестові збірки",
-    "development": "Проєкт розвивається — це ще не готовий побутовий прилад.",
-    "developmentText": "У стабільному каналі поки немає релізу. Поточні збірки призначено для тестування. Зберігайте резервні копії важливих файлів: RAID не замінює бекап. Точка доступу Wi-Fi та керування вентиляторами потребують сумісного обладнання.",
+    "buildLink": "Що увійшло до релізу",
+    "development": "Перший стабільний реліз · 0.2.15",
+    "developmentText": "Підписані пакети ARM64 і x64 доступні у стабільному каналі. На встановленому NAS виберіть Stable у налаштуваннях оновлень. Зберігайте резервні копії: RAID і шифрування їх не замінюють. Апаратні функції залежать від плати й адаптерів.",
     "footerDescription": "Ваш NAS — у зрозумілому вебінтерфейсі.",
     "source": "Вихідний код",
     "license": "Ліцензія",
