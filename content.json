@@ -196,12 +196,12 @@
         "Installation and core workflows tested in a VM"
       ],
       [
-        "Armbian",
+        "Armbian 26.8 (Debian 13)",
         "ARM64",
-        "Planned; not yet validated or listed as a supported installer target"
+        "Installation and core workflows tested on Raspberry Pi 5 + Radxa Penta SATA HAT"
       ]
     ],
-    "platformNote": "Use the exact distributions and versions above. Ubuntu ARM64, other Ubuntu releases and the Red Hat family are not supported by the current installer. VM checks do not certify every x64 computer."
+    "platformNote": "Use the exact distributions and versions above. Ubuntu ARM64, other Ubuntu releases and the Red Hat family are not supported by the current installer. VM checks do not certify every x64 computer. Armbian validation covers this Debian 13 build on Raspberry Pi 5, not every Armbian image or board."
   },
   "ru": {
     "title": "PaNasMs — Ваш NAS под рукой",
@@ -400,12 +400,12 @@
         "Установка и основные сценарии проверены на ВМ"
       ],
       [
-        "Armbian",
+        "Armbian 26.8 (Debian 13)",
         "ARM64",
-        "В планах; ещё не проверен и не заявлен как поддерживаемая цель установщика"
+        "Установка и основные сценарии проверены на Raspberry Pi 5 + Radxa Penta SATA HAT"
       ]
     ],
-    "platformNote": "Используйте указанные дистрибутивы и версии. Текущий установщик не поддерживает Ubuntu ARM64, другие версии Ubuntu и семейство Red Hat. Проверка на ВМ не гарантирует совместимость любого компьютера x64."
+    "platformNote": "Используйте указанные дистрибутивы и версии. Текущий установщик не поддерживает Ubuntu ARM64, другие версии Ubuntu и семейство Red Hat. Проверка на ВМ не гарантирует совместимость любого компьютера x64. Проверка Armbian относится к этой сборке на Debian 13 и Raspberry Pi 5, а не ко всем образам и платам."
   },
   "uk": {
     "title": "PaNasMs — Ваш NAS під рукою",
@@ -604,11 +604,11 @@
         "Установлення й основні сценарії перевірено на ВМ"
       ],
       [
-        "Armbian",
+        "Armbian 26.8 (Debian 13)",
         "ARM64",
-        "У планах; ще не перевірено й не заявлено як підтримувану ціль інсталятора"
+        "Установлення й основні сценарії перевірено на Raspberry Pi 5 + Radxa Penta SATA HAT"
       ]
     ],
-    "platformNote": "Використовуйте зазначені дистрибутиви й версії. Поточний інсталятор не підтримує Ubuntu ARM64, інші версії Ubuntu та сімейство Red Hat. Перевірка на ВМ не гарантує сумісність кожного комп’ютера x64."
+    "platformNote": "Використовуйте зазначені дистрибутиви й версії. Поточний інсталятор не підтримує Ubuntu ARM64, інші версії Ubuntu та сімейство Red Hat. Перевірка на ВМ не гарантує сумісність кожного комп’ютера x64. Перевірка Armbian стосується цієї збірки на Debian 13 і Raspberry Pi 5, а не всіх образів і плат."
   }
 }
