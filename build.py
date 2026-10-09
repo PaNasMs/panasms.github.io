@@ -46,7 +46,10 @@ for lang, t in CONTENT.items():
     for i, f in enumerate(t['features'], 1):
         points = ''.join(f'<li>{e(p)}</li>' for p in f['points'])
         use_case = f'<aside class="feature-usecase"><h3>{e(f["useCaseTitle"])}</h3><p>{e(f["useCaseText"])}</p><p class="usecase-note">{e(f["useCaseNote"])}</p></aside>' if 'useCaseTitle' in f else ''
-        features += f'''<section class="feature" id="{f['id']}" aria-labelledby="title-{f['id']}"><div class="feature-copy"><p class="eyebrow"><span>{i:02d}</span> {e(f['tag'])}</p><h2 id="title-{f['id']}">{lines(f['title'])}</h2><p>{e(f['text'])}</p><ul>{points}</ul>{use_case}</div>{picture(f['id'],f['caption'],t,prefix)}</section>'''
+        screenshots = picture(f['id'], f['caption'], t, prefix)
+        if f['id'] == 'storage':
+            screenshots = '<div class="feature-gallery">' + picture('raid', f['raidCaption'], t, prefix) + screenshots + '</div>'
+        features += f'''<section class="feature" id="{f['id']}" aria-labelledby="title-{f['id']}"><div class="feature-copy"><p class="eyebrow"><span>{i:02d}</span> {e(f['tag'])}</p><h2 id="title-{f['id']}">{lines(f['title'])}</h2><p>{e(f['text'])}</p><ul>{points}</ul>{use_case}</div>{screenshots}</section>'''
     steps = ''.join(f'<li><span class="step-number">{i}</span><div><h3>{e(a)}</h3><p>{e(b)}</p></div></li>' for i,(a,b) in enumerate(t['steps'],1))
     alternates = ''.join(f'<link rel="alternate" hreflang="{key}" href="{SITE}{"/" if key == "en" else "/" + key + "/"}">' for key in CONTENT)
     platform_rows = ''.join('<tr>' + ''.join(f'<td data-label="{e(label)}">{e(cell)}</td>' for label, cell in zip(t['platformHeaders'], row)) + '</tr>' for row in t['platformRows'])

@@ -287,7 +287,8 @@ figcaption {
   grid-column: 2;
   grid-row: 1;
 }
-.feature:nth-of-type(even) .shot {
+.feature:nth-of-type(even) > .shot,
+.feature:nth-of-type(even) > .feature-gallery {
   grid-column: 1;
   grid-row: 1;
 }
@@ -596,7 +597,8 @@ details a {
     padding: 50px 0;
   }
   .feature:nth-of-type(even) .feature-copy,
-  .feature:nth-of-type(even) .shot {
+  .feature:nth-of-type(even) > .shot,
+.feature:nth-of-type(even) > .feature-gallery {
     grid-column: auto;
     grid-row: auto;
   }
@@ -806,3 +808,5 @@ footer .legal { margin: 0; }
 .feature-usecase h3 { margin-bottom: 14px; }
 .feature-usecase p:last-child { margin-bottom: 0; }
 .feature-usecase .usecase-note { font-size: 14px; }
+
+.feature-gallery { display: grid; gap: 32px; min-width: 0; }

@@ -18,19 +18,21 @@
     "introText": "From moving a folder to checking a disk, each part of PaNasMs has a clear job. Here is what you can do today.",
     "enlarge": "Enlarge screenshot",
     "close": "Close screenshot",
-    "imageNote": "Real English UI screenshots captured on October 4, 2026 during the 0.2.15 release cycle. Desktop and 390 px mobile views, with light and dark themes. Some views are cropped to protect account details and device identifiers. Screenshots illustrate the interface; they do not show every feature described here.",
+    "imageNote": "Real English UI screenshots captured on October 4, 2026 during the 0.2.15 release cycle. Desktop and 390 px mobile views, with light and dark themes. Some views are cropped to protect account details and device identifiers. Screenshots illustrate the interface; they do not show every feature described here. Files and Disks and arrays were recaptured on October 9 with stable 0.2.15; account addresses and hardware serial numbers are redacted.",
     "features": [
       {
         "id": "files",
         "tag": "Files",
-        "title": "Your folders,\nwhere you expect them.",
+        "title": "Local files. Google Drive.\nDropbox. One place.",
         "text": "Browse local storage, network folders, Google Drive and Dropbox. Copy and move files between locations and accounts; uploads and file operations run in the background while you use other sections.",
         "points": [
-          "Bulk copy, move and delete with conflict choices",
-          "Background transfers continue across module navigation",
-          "Folder tree, thumbnails, trash and access permissions"
+          "Browse Google Drive and Dropbox directly in the folder tree, alongside local and network folders",
+          "Connect multiple accounts; copy or move between the NAS and cloud, between two Google Drives, or between Google Drive and Dropbox",
+          "Drag and drop with copy/move and skip, rename or replace choices",
+          "Bulk operations and uploads run in the background while you use other sections",
+          "Pinned folders, thumbnails, trash and access permissions"
         ],
-        "caption": "Files module · system folders in icon view"
+        "caption": "Files · full folder tree with local storage, Google Drive and Dropbox"
       },
       {
         "id": "storage",
@@ -48,7 +50,8 @@
         "caption": "Storage · local volumes grouped by device",
         "useCaseTitle": "Encrypted storage, ready after boot.",
         "useCaseText": "Keep a LUKS unlock key on the system microSD to mount your encrypted volume automatically at startup — useful for home folders and Docker data. Manual unlocking remains an option.",
-        "useCaseNote": "A key stored with the NAS protects a removed data disk, but not against someone who takes both the disk and its unlock key. Keep the recovery passphrase and backups separately."
+        "useCaseNote": "A key stored with the NAS protects a removed data disk, but not against someone who takes both the disk and its unlock key. Keep the recovery passphrase and backups separately.",
+        "raidCaption": "Storage · physical disks and the four-drive RAID6 array"
       },
       {
         "id": "users",
@@ -233,19 +236,21 @@
     "introText": "Переместить папку или проверить диск — у каждого раздела PaNasMs своя понятная задача. Вот что уже можно делать.",
     "enlarge": "Увеличить скриншот",
     "close": "Закрыть скриншот",
-    "imageNote": "Реальные скриншоты английского интерфейса от 4 октября 2026 года, сделанные при подготовке 0.2.15. Десктоп и мобильный экран шириной 390 px, светлая и тёмная темы. Некоторые изображения обрезаны для защиты данных аккаунтов и идентификаторов устройств. Скриншоты показывают интерфейс, а не все описанные возможности.",
+    "imageNote": "Реальные скриншоты английского интерфейса от 4 октября 2026 года, сделанные при подготовке 0.2.15. Десктоп и мобильный экран шириной 390 px, светлая и тёмная темы. Некоторые изображения обрезаны для защиты данных аккаунтов и идентификаторов устройств. Скриншоты показывают интерфейс, а не все описанные возможности. Files и управление дисками и массивами пересняты 9 октября на стабильной 0.2.15; адреса аккаунтов и серийные номера скрыты.",
     "features": [
       {
         "id": "files",
         "tag": "Файлы",
-        "title": "Ваши папки.\nНа привычных местах.",
+        "title": "Локальные файлы. Google Drive.\nDropbox. В одном месте.",
         "text": "Работайте с локальными и сетевыми папками, Google Drive и Dropbox. Копируйте и перемещайте файлы между расположениями и аккаунтами; загрузки и операции идут в фоне, пока вы пользуетесь другими разделами.",
         "points": [
-          "Массовое копирование, перенос и удаление с выбором при конфликтах",
-          "Фоновые операции продолжаются при переходе в другой модуль",
-          "Дерево папок, миниатюры, корзина и права доступа"
+          "Google Drive и Dropbox прямо в дереве папок, рядом с локальными и сетевыми папками",
+          "Несколько аккаунтов: копирование и перемещение между NAS и облаком, двумя Google Drive или Google Drive и Dropbox",
+          "Перетаскивание с выбором копирования или перемещения и поведения при совпадении имён: пропустить, переименовать, заменить",
+          "Массовые операции и загрузки выполняются в фоне, пока вы работаете в других разделах",
+          "Закреплённые папки, миниатюры, корзина и права доступа"
         ],
-        "caption": "Модуль «Файлы» · системные папки плитками"
+        "caption": "Файлы · полное дерево с локальными папками, Google Drive и Dropbox"
       },
       {
         "id": "storage",
@@ -263,7 +268,8 @@
         "caption": "Хранилище · локальные тома по устройствам",
         "useCaseTitle": "Зашифрованное хранилище, готовое после загрузки.",
         "useCaseText": "Ключ LUKS на системной microSD позволяет автоматически разблокировать и смонтировать том при запуске — удобно для домашних папок и Docker. Можно оставить и ручную разблокировку.",
-        "useCaseNote": "Ключ рядом с NAS защищает отдельно снятый диск, но не от кражи диска вместе с ключом. Пароль восстановления и резервные копии храните отдельно."
+        "useCaseNote": "Ключ рядом с NAS защищает отдельно снятый диск, но не от кражи диска вместе с ключом. Пароль восстановления и резервные копии храните отдельно.",
+        "raidCaption": "Хранилище · физические диски и массив RAID6 из четырёх дисков"
       },
       {
         "id": "users",
@@ -448,19 +454,21 @@
     "introText": "Перемістити папку чи перевірити диск — кожен розділ PaNasMs має зрозуміле завдання. Ось що вже можна робити.",
     "enlarge": "Збільшити скриншот",
     "close": "Закрити скриншот",
-    "imageNote": "Реальні знімки англійського інтерфейсу від 4 жовтня 2026 року, зроблені під час підготовки 0.2.15. Десктоп і мобільний екран шириною 390 px, світла й темна теми. Деякі знімки обрізані для захисту даних облікових записів та ідентифікаторів пристроїв. Знімки ілюструють інтерфейс, а не всі описані можливості.",
+    "imageNote": "Реальні знімки англійського інтерфейсу від 4 жовтня 2026 року, зроблені під час підготовки 0.2.15. Десктоп і мобільний екран шириною 390 px, світла й темна теми. Деякі знімки обрізані для захисту даних облікових записів та ідентифікаторів пристроїв. Знімки ілюструють інтерфейс, а не всі описані можливості. Files і керування дисками та масивами перезняті 9 жовтня на стабільній 0.2.15; адреси акаунтів і серійні номери приховані.",
     "features": [
       {
         "id": "files",
         "tag": "Файли",
-        "title": "Ваші папки.\nНа звичних місцях.",
+        "title": "Локальні файли. Google Drive.\nDropbox. В одному місці.",
         "text": "Працюйте з локальними й мережевими папками, Google Drive та Dropbox. Копіюйте й переміщуйте файли між розташуваннями та обліковими записами; завантаження й операції працюють у фоні, поки ви користуєтеся іншими розділами.",
         "points": [
-          "Масове копіювання, перенесення й видалення з вибором при конфліктах",
-          "Фонові операції тривають при переході до іншого модуля",
-          "Дерево папок, мініатюри, кошик і права доступу"
+          "Google Drive і Dropbox просто в дереві папок, поруч із локальними та мережевими папками",
+          "Кілька акаунтів: копіювання й переміщення між NAS і хмарою, двома Google Drive або Google Drive і Dropbox",
+          "Перетягування з вибором копіювання чи переміщення та дії при збігу імен: пропустити, перейменувати, замінити",
+          "Масові операції та завантаження виконуються у фоні, поки ви працюєте в інших розділах",
+          "Закріплені папки, мініатюри, кошик і права доступу"
         ],
-        "caption": "Модуль «Файли» · системні папки плитками"
+        "caption": "Файли · повне дерево з локальними папками, Google Drive і Dropbox"
       },
       {
         "id": "storage",
@@ -478,7 +486,8 @@
         "caption": "Сховище · локальні томи за пристроями",
         "useCaseTitle": "Зашифроване сховище, готове після завантаження.",
         "useCaseText": "Ключ LUKS на системній microSD дозволяє автоматично розблокувати й змонтувати том під час запуску — зручно для домашніх папок і Docker. Можна залишити й ручне розблокування.",
-        "useCaseNote": "Ключ поруч із NAS захищає окремо знятий диск, але не від крадіжки диска разом із ключем. Пароль відновлення й резервні копії зберігайте окремо."
+        "useCaseNote": "Ключ поруч із NAS захищає окремо знятий диск, але не від крадіжки диска разом із ключем. Пароль відновлення й резервні копії зберігайте окремо.",
+        "raidCaption": "Сховище · фізичні диски та масив RAID6 із чотирьох дисків"
       },
       {
         "id": "users",

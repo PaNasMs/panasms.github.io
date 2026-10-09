@@ -102,3 +102,12 @@ Installation guide: https://panasms.github.io/docs/setup/install/ (source: `page
 The OS matrix follows `PaNasMs/updates/scripts/install.py`: Debian 13 (ARM64/AMD64), Raspberry Pi OS 13 (ARM64), and Ubuntu 24.04 LTS (AMD64). Physical validation is on Raspberry Pi 5; Debian and Ubuntu AMD64 were tested in Proxmox VMs. Armbian 26.8 based on Debian 13 is accepted through the Debian base; installation and core workflows have passed physical testing on Raspberry Pi 5 + Radxa Penta SATA HAT. Its provider-aware network configuration and native cooling package do not imply acceptance of every Armbian image or board.
 
 The phone section shows the real 390 CSS px Modules layout: bottom taskbar, labelled actions and stacked cards. Screenshots demonstrate layouts, not complete accessibility or device certification. Figures offer theme controls only when both current-theme captures exist. Files and Network currently show light captures; Cloud Sync shows a dark capture. Other figures have both.
+
+## Stable screenshot correction (October 9, 2026)
+
+Files now shows the full sidebar and system folder list in both themes. Storage
+includes separate disks/RAID and partitions/mounts views. New `home-raid-*.png`
+and refreshed `home-files-*.png` are real English stable 0.2.15 captures. Opaque
+redaction covers account email addresses and drive serial values only. No UI
+controls, device cards or sidebar sections were removed. Original unredacted
+captures are not published.
