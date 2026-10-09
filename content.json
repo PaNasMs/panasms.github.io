@@ -105,7 +105,6 @@
           "Search Docker Hub or enter a registry address; choose tags and check architecture",
           "Create containers with forms for ports, environment variables, networks and folders",
           "Inspect logs and live resources; manage networks and volumes",
-          "Open web apps from desktop shortcuts; optionally proxy apps that support a URL subpath",
           "Use existing Docker or install missing components; relocate Docker storage from settings"
         ],
         "caption": "Containers and applications · a database and phpMyAdmin running on the NAS"
@@ -323,7 +322,6 @@
           "Поиск в Docker Hub или адрес реестра, выбор тега и проверка архитектуры",
           "Формы портов, переменных окружения, сетей и папок при создании контейнера",
           "Журналы и текущие ресурсы; управление сетями и томами",
-          "Ярлыки веб-приложений на рабочем столе; прокси для приложений с поддержкой подпути URL",
           "Использование установленного Docker, установка недостающего и перенос его данных из настроек"
         ],
         "caption": "Контейнеры и приложения · база данных и phpMyAdmin работают на NAS"
@@ -541,7 +539,6 @@
           "Пошук у Docker Hub або адреса реєстру, вибір тегу й перевірка архітектури",
           "Форми портів, змінних оточення, мереж і папок під час створення контейнера",
           "Журнали й поточні ресурси; керування мережами та томами",
-          "Ярлики вебзастосунків на робочому столі; проксі для застосунків із підтримкою підшляху URL",
           "Використання встановленого Docker, встановлення відсутніх компонентів і перенесення даних із налаштувань"
         ],
         "caption": "Контейнери та застосунки · база даних і phpMyAdmin працюють на NAS"
