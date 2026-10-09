@@ -1,6 +1,6 @@
 {
   "en": {
-    "title": "PaNasMs — Your NAS, within reach",
+    "title": "PaNasMs · Your NAS, within reach",
     "description": "Manage your home NAS from a browser. Files, disks, people and network, together in a clear interface.",
     "navFeatures": "Explore",
     "navInstall": "Get started",
@@ -9,7 +9,7 @@
     "github": "View on GitHub",
     "eyebrow": "Pavlo's NAS Management System",
     "heroTitle": "Your NAS.\nWithin reach.",
-    "heroText": "A browser-based home for your DIY NAS — on Raspberry Pi or an x64 Linux machine. Manage storage, files, people and apps from your computer or phone.",
+    "heroText": "A browser-based home for your DIY NAS on a Raspberry Pi or an x64 Linux machine. Manage storage, files, people and apps from your computer or phone.",
     "explore": "Take a look inside",
     "status": "Stable 0.2.15 is available",
     "heroCaption": "The new Home desktop · live widgets, shortcuts and background tasks",
@@ -49,7 +49,7 @@
         ],
         "caption": "Storage · local volumes grouped by device",
         "useCaseTitle": "Encrypted storage, ready after boot.",
-        "useCaseText": "Keep a LUKS unlock key on the system microSD to mount your encrypted volume automatically at startup — useful for home folders and Docker data. Manual unlocking remains an option.",
+        "useCaseText": "Keep a LUKS unlock key on the system microSD to mount your encrypted volume automatically at startup. This suits home folders and Docker data. Manual unlocking remains an option.",
         "useCaseNote": "A key stored with the NAS protects a removed data disk, but not against someone who takes both the disk and its unlock key. Keep the recovery passphrase and backups separately.",
         "raidCaption": "Storage · physical disks and the four-drive RAID6 array"
       },
@@ -80,7 +80,7 @@
         ],
         "caption": "Network · access-point setup (unsubmitted)",
         "useCaseTitle": "Your NAS, in your backpack.",
-        "useCaseText": "Take a compact NAS with you, plug it into power and access your files from a laptop or phone. If it cannot connect to a wired or Wi-Fi network, PaNasMs can start its own password-protected Wi-Fi hotspot after a configurable wait. Join that network and open the NAS in your browser — no router or internet connection is needed for local files.",
+        "useCaseText": "Take a compact NAS with you, plug it into power and access your files from a laptop or phone. If it cannot connect to a wired or Wi-Fi network, PaNasMs can start its own password-protected Wi-Fi hotspot after a configurable wait. Join that network and open the NAS in your browser. Local files need no router or internet connection.",
         "useCaseNote": "Save the hotspot name and password before travelling; both are available in Settings → Network. A Wi-Fi adapter that supports access-point mode is required."
       },
       {
@@ -100,7 +100,7 @@
         "id": "containers",
         "tag": "Docker",
         "title": "More than storage.\nRun your own services.",
-        "text": "The optional Containers and applications module brings Docker into PaNasMs. Run a database or a web tool, connect services and manage them from the same interface. This is an administrator-only preview. Application catalog and new Compose deployment are not available in this preview",
+        "text": "The optional Containers and applications module brings Docker into PaNasMs. Run a database or a web tool, connect services and manage them from the same interface. This is an administrator-only preview. The application catalog and new Compose deployments are not part of this preview.",
         "points": [
           "Search Docker Hub or enter a registry address; choose tags and check architecture",
           "Create containers with forms for ports, environment variables, networks and folders",

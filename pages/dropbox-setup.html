@@ -15,10 +15,10 @@
 <h2 id="permissions">2. Select the required permissions</h2>
 <p>Open your app's <strong>Permissions</strong> tab. For <strong>account linking and Cloud Sync</strong>, enable exactly these four permissions under <strong>Individual Scopes</strong>:</p>
 <ul>
-<li><strong><code>account_info.read</code></strong> — identify the Dropbox account and read its basic profile information. This is also required for account linking.</li>
-<li><strong><code>files.metadata.read</code></strong> — list folders and files and detect cloud changes.</li>
-<li><strong><code>files.content.read</code></strong> — download files from Dropbox to the NAS.</li>
-<li><strong><code>files.content.write</code></strong> — upload and update files, create folders and propagate deletions during two-way synchronization.</li>
+<li><strong><code>account_info.read</code></strong>: identify the Dropbox account and read its basic profile information. This is also required for account linking.</li>
+<li><strong><code>files.metadata.read</code></strong>: list folders and files and detect cloud changes.</li>
+<li><strong><code>files.content.read</code></strong>: download files from Dropbox to the NAS.</li>
+<li><strong><code>files.content.write</code></strong>: upload and update files, create folders and propagate deletions during two-way synchronization.</li>
 </ul>
 <p><strong>For account linking only:</strong> enable just <code>account_info.read</code>. The other three permissions are needed when you add Cloud Sync. The current Cloud Sync connection requests all four even if you later choose a download-only task.</p>
 <p>Dropbox may automatically check and lock a required permission; that is normal. Leave <code>account_info.write</code>, <code>files.metadata.write</code>, <code>files.permanent_delete</code>, sharing, contacts, OpenID and team permissions unchecked. They are not needed by this integration.</p>
