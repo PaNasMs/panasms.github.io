@@ -1,16 +1,19 @@
 # PaNasMs project website
 
-The public presentation of **Pavlo's NAS Management System**, at
-[panasms.github.io](https://panasms.github.io/).
+Source of [panasms.github.io](https://panasms.github.io/), the public site of
+[Pavlo's NAS Management System](https://github.com/PaNasMs/panasms). The site presents
+each section of the panel with a real screenshot, hosts the installation guide and the
+Google, GitHub and Dropbox setup guides, and documents the Raspberry Pi 5 build the
+project runs on. English is the default language. Russian and Ukrainian have their own
+URLs under `/ru/` and `/uk/`.
 
-Each feature is paired with a screenshot of the running application. English is
-the default; Russian and Ukrainian have their own static URLs. Pages work without
-JavaScript; JavaScript adds theme selection and an accessible screenshot viewer.
+Pages work without JavaScript. The script only adds the theme switch for screenshots
+and an accessible screenshot viewer. The site loads no external fonts, analytics,
+cookies or third-party scripts.
 
 ## Build and preview
 
-Requires Python 3.12 or newer. There are no npm dependencies, external fonts,
-analytics, cookies or third-party scripts.
+The build needs Python 3.12 or newer and no npm packages.
 
 ```sh
 python3 build.py
@@ -18,96 +21,58 @@ python3 check.py
 python3 -m http.server 4173 --bind 127.0.0.1 --directory public
 ```
 
-- `content.json`: translated descriptions, captions and navigation.
-- `build.py`: static HTML, metadata and sitemap generation.
-- `pages/`: English privacy policy, terms of use and Google/GitHub/Dropbox integration guides.
-- [Google setup guide](https://panasms.github.io/docs/setup/google/): OAuth client,
-  private-network callback relay, account linking and optional Drive permissions.
-  Its five reviewed screenshots live in `assets/google-setup/`.
-- [GitHub setup guide](https://panasms.github.io/docs/setup/github/): OAuth App,
-  callback gateway, client secret, account linking and sign-in troubleshooting.
-  Its screenshot uses an unsubmitted example form with no credentials.
-- [Dropbox setup guide](https://panasms.github.io/docs/setup/dropbox/): scoped app,
-  account-only permissions, callback gateway, credentials and account linking.
-  Its permission screenshot contains no credentials or personal account information. The guide lists both account-linking and optional Cloud Sync file permissions.
-- `style.css`: responsive layout and shared visual styles.
-- `app.js`: screenshot enlargement, Escape dismissal and focus restoration.
-- `assets/screenshots/`: current `home-*.png` captures: 17 real English UI screenshots from October 4, 2026 (PaNasMs 0.2.15, Files 0.3.6, Terminal 0.2.10, Cloud Sync 0.1.20, Containers 0.1.11). Desktop and 390 CSS px phone views include light and dark themes. Older captures remain as historical assets and are not used by the presentation.
-- `public/`: generated website, intentionally ignored by Git.
+`build.py` writes the static site into `public/`, which Git ignores. `check.py` checks
+the three languages, the policy pages, the setup guides, the hardware page, screenshot
+files and local links. GitHub Actions runs both on pull requests and deploys `main` to
+GitHub Pages, so the Pages source must be set to **GitHub Actions**. Pushing here
+publishes the site only. It does not build or install NAS software.
 
-GitHub Actions checks pull requests and deploys `main` to GitHub Pages. Pages must
-use the **GitHub Actions** deployment source. Repository updates do not build or
-install the NAS software.
+## Layout
 
-## Screenshot policy
+| Path | Contents |
+| --- | --- |
+| `content.json` | Landing-page text, captions and navigation in en, ru and uk |
+| `pages/` | English pages: installation guide, Google, GitHub and Dropbox setup, privacy policy, terms of use, hardware build |
+| `assets/screenshots/home-*.png` | Screenshots used by the landing page; older files without the `home-` prefix are kept for history and are not used |
+| `assets/google-setup/`, `assets/github-setup/`, `assets/dropbox-setup/` | Screenshots for the setup guides |
+| `assets/hardware/rpi-radxa-penta/` | Edited build photos (WebP) and wiring illustrations (PNG) |
+| `style.css`, `app.js` | Layout, theme switch and screenshot viewer with Escape and focus handling |
 
-Capture the real English UI; do not invent working features. Choose views without
-personal documents, user names, IP/MAC addresses, serial numbers, tokens or
-credentials. Crop at capture time where necessary. Convert browser JPEG captures to PNG without changing their content. Users and network images show
-unsubmitted forms; opening them did not create users or change the network.
-The Files image shows generic system folders. No NAS API or private address is
-embedded in the website. Review every replacement image before committing it.
+The supported operating systems on the site follow `scripts/install.py` in
+[PaNasMs/updates](https://github.com/PaNasMs/updates). Update both together.
 
-The page presents stable 0.2.15 and links to its release notes. Installation uses
-the stable channel by default. Feature descriptions retain hardware and module
-limitations; screenshots are labelled with their original capture date.
+## Screenshots
 
-## Licensing and image credits
+Capture the real English interface and do not show features that do not work. Pick
+views without personal files, user names, IP or MAC addresses, serial numbers, tokens
+or credentials, and crop or redact at capture time. Opaque redaction is allowed for
+account email addresses and drive serial numbers. Do not remove controls or sections
+from a capture. Forms in the users and network images were opened and not submitted.
 
-Original website code and text: PolyForm Noncommercial 1.0.0; see `LICENSE` and
-`NOTICE`. Do not describe this license as unrestricted open source.
+Browser captures can contain JPEG data under a `.png` name. Re-encode them as PNG:
+the build reads the PNG signature to get image dimensions, and wrong dimensions break
+the page layout.
 
-Some screenshots show **Flow** by **Sandra Smukaste**, from the
-[KDE wallpaper collection](https://github.com/KDE/plasma-workspace-wallpapers/tree/master/Flow),
-licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
-The wallpaper appears as the application's background; captures are cropped and
-scaled for display. The screenshot assets are shared under CC BY-SA 4.0, with
-PaNasMs interface credit and the wallpaper attribution retained. Third-party
-artwork retains its own license. See the visible image-credits section of the site.
+A figure shows the theme switch only when both a light and a dark capture exist.
+Files and Network have light captures only and Cloud Sync has a dark capture only.
+The landing page dates its captures: most are from October 4, 2026, and Files and
+Disks and arrays were recaptured on October 9 with stable 0.2.15.
 
 ## Hardware build page
 
-[Pi 5 + Radxa Penta build](https://panasms.github.io/hardware/rpi_radxa_penta/)
-is authored in `pages/rpi-radxa-penta.html`. Assets are in
-`assets/hardware/rpi-radxa-penta/`: three edited owner photos (WebP) and three
-existing English wiring illustrations (PNG). See NOTICE and visible page credits.
-Photos are illustrative; pin-number tables and verified board orientation govern
-electrical connections. Never publish original desktop photos, serial numbers,
-monitor content or private hardware notes wholesale. CAD files are not included.
+`pages/rpi-radxa-penta.html` describes the owner's NAS: Raspberry Pi 5, Radxa Penta
+SATA HAT and four 2.5-inch drives. The photos illustrate assembly stages. The pin tables
+are what governs electrical connections. Never publish original desktop photos, serial
+numbers, monitor content or private hardware notes. CAD files are not included yet.
 
-## Presentation refresh
+## Licensing and image credits
 
-The landing page targets DIY ARM64 NAS builds and lists the tested AMD64
-distributions, with VM validation distinguished from physical hardware testing. The first physical build
-is linked prominently from the platform section and again from the footer.
+Original website code and text use PolyForm Noncommercial 1.0.0; see `LICENSE` and
+`NOTICE`. Do not describe this license as open source.
 
-Each feature has light/dark screenshots with a keyboard-accessible local switch.
-Without JavaScript the light view and a direct dark-image link remain available.
-The screenshot viewer always enlarges the selected theme.
-
-Capture PNGs must actually contain PNG data: the build validates the signature
-before reading dimensions. Browser captures may return JPEG bytes regardless of
-the filename; encode them as PNG before adding them. Invalid dimensions previously
-caused overflowing layout calculations and overlapping installation/footer content.
-
-Current screenshots: desktop, Files, Storage (complete disks-and-arrays view, including the system microSD),
-user creation, connection sharing, Modules, Cloud Sync folder selection (cropped
-below the account identity), metrics history, and running Docker containers. No setup form was submitted.
-Do not publish private account lists, file contents or credentials.
-
-Installation guide: https://panasms.github.io/docs/setup/install/ (source: `pages/install-setup.html`).
-
-## Platform and responsive presentation
-
-The OS matrix follows `PaNasMs/updates/scripts/install.py`: Debian 13 (ARM64/AMD64), Raspberry Pi OS 13 (ARM64), and Ubuntu 24.04 LTS (AMD64). Physical validation is on Raspberry Pi 5; Debian and Ubuntu AMD64 were tested in Proxmox VMs. Armbian 26.8 based on Debian 13 is accepted through the Debian base; installation and core workflows have passed physical testing on Raspberry Pi 5 + Radxa Penta SATA HAT. Its provider-aware network configuration and native cooling package do not imply acceptance of every Armbian image or board.
-
-The phone section shows the real 390 CSS px Modules layout: bottom taskbar, labelled actions and stacked cards. Screenshots demonstrate layouts, not complete accessibility or device certification. Figures offer theme controls only when both current-theme captures exist. Files and Network currently show light captures; Cloud Sync shows a dark capture. Other figures have both.
-
-## Stable screenshot correction (October 9, 2026)
-
-Files now shows the full sidebar and system folder list in both themes. Storage
-includes separate disks/RAID and partitions/mounts views. New `home-raid-*.png`
-and refreshed `home-files-*.png` are real English stable 0.2.15 captures. Opaque
-redaction covers account email addresses and drive serial values only. No UI
-controls, device cards or sidebar sections were removed. Original unredacted
-captures are not published.
+Some screenshots show **Flow** by Sandra Smukaste from the
+[KDE wallpaper collection](https://github.com/KDE/plasma-workspace-wallpapers/tree/master/Flow),
+licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/), as the
+panel background. The screenshot files are shared under CC BY-SA 4.0 with that
+attribution and the PaNasMs interface credit. The wiring illustrations adapt a Radxa
+image licensed under CC BY 4.0. The site's credits section lists these sources.
