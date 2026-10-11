@@ -67,7 +67,7 @@ numbers, monitor content or private hardware notes. CAD files are not included y
 
 ## Licensing and image credits
 
-Original website code and text use PaNasMs Source-Available License 1.0; see `LICENSE` and
+Original website code and text use Sustainable Use License 1.0; see `LICENSE` and
 `NOTICE`. Do not describe this license as open source.
 
 Some screenshots show **Flow** by Sandra Smukaste from the
