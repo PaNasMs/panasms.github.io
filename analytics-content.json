@@ -1,0 +1,38 @@
+{
+  "en": {
+    "title": "Help us improve PaNasMs",
+    "text": "May we use Google Analytics cookies to understand visits, approximate location and clicks on this website? It is optional and does not access your NAS or files.",
+    "accept": "Allow analytics",
+    "reject": "Reject analytics",
+    "settings": "Analytics preferences",
+    "privacy": "Privacy policy",
+    "close": "Keep current choice",
+    "copy": "Copy command",
+    "copied": "Command copied",
+    "copyError": "Could not copy. Select the command and copy it manually."
+  },
+  "ru": {
+    "title": "Помогите улучшить PaNasMs",
+    "text": "Разрешить cookies Google Analytics для статистики посещений, примерной географии и переходов на этом сайте? Это необязательно и не даёт доступа к вашему NAS или файлам.",
+    "accept": "Разрешить аналитику",
+    "reject": "Отклонить аналитику",
+    "settings": "Настройки аналитики",
+    "privacy": "Политика конфиденциальности",
+    "close": "Оставить текущий выбор",
+    "copy": "Копировать команду",
+    "copied": "Команда скопирована",
+    "copyError": "Не удалось скопировать. Выделите команду и скопируйте вручную."
+  },
+  "uk": {
+    "title": "Допоможіть покращити PaNasMs",
+    "text": "Дозволити cookies Google Analytics для статистики відвідувань, приблизної географії та переходів на цьому сайті? Це необов’язково й не надає доступу до вашого NAS або файлів.",
+    "accept": "Дозволити аналітику",
+    "reject": "Відхилити аналітику",
+    "settings": "Налаштування аналітики",
+    "privacy": "Політика конфіденційності",
+    "close": "Залишити поточний вибір",
+    "copy": "Копіювати команду",
+    "copied": "Команду скопійовано",
+    "copyError": "Не вдалося скопіювати. Виділіть команду та скопіюйте вручну."
+  }
+}

@@ -3,6 +3,7 @@ from html import escape
 import json
 import shutil
 import struct
+import re
 
 ROOT = Path(__file__).resolve().parent
 OUT = ROOT / 'public'
@@ -10,7 +11,7 @@ CONTENT = json.loads((ROOT / 'content.json').read_text())
 SITE = 'https://panasms.github.io'
 OUT.mkdir(exist_ok=True)
 shutil.copytree(ROOT / 'assets', OUT / 'assets', dirs_exist_ok=True)
-for name in ('style.css', 'app.js', 'favicon.svg'):
+for name in ('style.css', 'app.js', 'analytics.js', 'favicon.svg'):
     shutil.copyfile(ROOT / name, OUT / name)
 
 def e(value):
@@ -91,3 +92,25 @@ body = (ROOT / 'pages/rpi-radxa-penta.html').read_text()
 (page / 'index.html').write_text(f'''<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Raspberry Pi 5 + Radxa Penta SATA HAT build · PaNasMs</title><meta name="description" content="Inside our four-drive Raspberry Pi NAS: assembly photos, hardware inventory, and two-wire MOSFET or four-wire Noctua PWM cooling connections."><link rel="canonical" href="{SITE}/hardware/rpi_radxa_penta/"><meta property="og:title" content="Our Raspberry Pi 5 NAS build"><meta property="og:image" content="{SITE}/assets/hardware/rpi-radxa-penta/assembled.webp"><link rel="icon" href="../../favicon.svg"><link rel="stylesheet" href="../../style.css"><script src="../../app.js" defer></script></head><body><a class="skip" href="#main">Skip to content</a><header class="site-header"><div class="header-inner"><a class="brand" href="../../">PaNasMs</a><nav aria-label="Hardware navigation"><a href="../../">Project home</a><a href="#cooling">Disk cooling</a></nav></div></header><main id="main" class="hardware-page wrap">{body}</main><footer><div class="wrap footer-links"><a href="../../">Return to PaNasMs</a><a href="../../docs/setup/google/">Google setup</a><a href="../../privacy/">Privacy</a><a href="../../terms/">Terms</a></div></footer><dialog class="lightbox" aria-label="Enlarged build image"><form method="dialog"><button autofocus aria-label="Close image" title="Close image">×</button></form><img alt=""><p></p></dialog></body></html>''')
 sitemap.write_text(sitemap.read_text().replace('</urlset>', f'<url><loc>{SITE}/hardware/rpi_radxa_penta/</loc></url></urlset>'))
+
+analytics = json.loads((ROOT / 'analytics.json').read_text())
+measurement_id = analytics['measurement_id']
+assert not measurement_id or re.fullmatch(r'G-[A-Z0-9]+', measurement_id), 'Invalid GA4 measurement ID'
+consent_text = json.loads((ROOT / 'analytics-content.json').read_text())
+for page in OUT.rglob('index.html'):
+    html = page.read_text()
+    language = re.search(r'<html lang="([a-z]+)"', html).group(1)
+    t = consent_text[language]
+    prefix = '../' * len(page.parent.relative_to(OUT).parts) or './'
+    script = f'<script src="{prefix}analytics.js" data-measurement-id="{e(measurement_id)}" defer></script>'
+    html = html.replace('</head>', script + '</head>')
+    preferences = f'<div class="wrap analytics-footer"><button type="button" data-analytics-preferences hidden>{e(t["settings"])}</button></div>'
+    html = html.replace('</footer>', preferences + '</footer>')
+    banner = f'''<section id="analytics-consent" class="analytics-consent" aria-labelledby="analytics-title" aria-describedby="analytics-description" hidden><h2 id="analytics-title">{e(t['title'])}</h2><p id="analytics-description">{e(t['text'])} <a href="{prefix}privacy/#website-analytics">{e(t['privacy'])}</a></p><div class="analytics-actions"><button type="button" data-consent-reject>{e(t['reject'])}</button><button type="button" data-consent-accept>{e(t['accept'])}</button><button type="button" data-consent-close hidden>{e(t['close'])}</button></div></section>'''
+    html = html.replace('</body>', banner + '</body>')
+    if page.parent.name == 'install':
+        command = '<pre><code>curl -fsSL https://panasms.github.io/updates/install.sh | sudo bash</code></pre>'
+        replacement = f'''<pre><code id="install-command">curl -fsSL https://panasms.github.io/updates/install.sh | sudo bash</code></pre><div class="command-actions"><button type="button" data-copy-command="install-command" data-success="{e(t['copied'])}" data-error="{e(t['copyError'])}" aria-describedby="copy-command-status" hidden>{e(t['copy'])}</button><span id="copy-command-status" role="status"></span></div>'''
+        assert command in html
+        html = html.replace(command, replacement, 1)
+    page.write_text(html)
