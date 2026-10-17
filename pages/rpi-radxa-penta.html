@@ -3,7 +3,7 @@
     <p class="eyebrow">Hardware / Build 01</p>
     <h1 id="build-title">Raspberry Pi 5.<br>Four drives.<br>One compact NAS.</h1>
     <p class="lead">The first real-world PaNasMs build: a Raspberry Pi 5, a Radxa Penta SATA HAT and four 2.5-inch hard drives in a 3D-printed enclosure.</p>
-    <p>This is the owner's working NAS and our development system. The assembly photos show how it came together; the cooling section explains both two-wire and four-wire fan connections.</p>
+    <p>This is the owner's working NAS and our development system. The assembly photos show how it came together; the wiring sections explain two-wire and four-wire fan connections and the optional OLED status screen.</p>
     <dl class="build-facts"><div><dt>Board</dt><dd>Pi 5 · 8 GB</dd></div><div><dt>Storage</dt><dd>4 × 1 TB HDD</dd></div><div><dt>Array</dt><dd>Linux RAID 6, encrypted</dd></div></dl>
     <a class="text-link" href="#cooling">Explore the cooling options ↓</a>
   </div>
@@ -12,7 +12,7 @@
     <figcaption>The assembled enclosure. Retouched from the owner's photograph; monitor content has been excluded.</figcaption>
   </figure>
 </section>
-<nav class="build-nav" aria-label="On this page"><a href="#components">Components</a><a href="#assembly">Assembly</a><a href="#cooling">Cooling options</a><a href="#custom-pwm">Two-wire wiring</a><a href="#factory-pwm">Four-wire wiring</a><a href="#checks">Before powering on</a></nav>
+<nav class="build-nav" aria-label="On this page"><a href="#components">Components</a><a href="#assembly">Assembly</a><a href="#cooling">Cooling options</a><a href="#custom-pwm">Two-wire wiring</a><a href="#factory-pwm">Four-wire wiring</a><a href="#oled">OLED screen</a><a href="#checks">Before powering on</a></nav>
 <div class="build-body">
 <section id="components">
   <p class="eyebrow">The parts</p><h2>What is inside</h2>
@@ -21,6 +21,7 @@
     <tr><th scope="row">Storage board</th><td>Radxa Penta SATA HAT, linked to the Pi's PCIe connector by an FPC cable.</td></tr>
     <tr><th scope="row">Data drives</th><td>Four Western Digital WD10JFCX 1 TB, 2.5-inch SATA HDDs.</td></tr>
     <tr><th scope="row">System drive</th><td>microSD, separate from the data array. Card model and capacity are not specified in this build record.</td></tr>
+    <tr><th scope="row">Status display</th><td>Four-pin 128×64 I²C OLED, flex marking NFP1315-51A; tested with the SSD1306-compatible configuration at 3.3 V. <a href="#oled">Identification and wiring</a>.</td></tr>
     <tr><th scope="row">CPU cooling</th><td>Raspberry Pi 5 Active Cooler, separate from the disk-bay fan.</td></tr>
     <tr><th scope="row">Power</th><td>12 V supply to the HAT, which also powers the Pi. The purchase record lists Mean Well GST90A12-P1M (12 V, 6.67 A); the installed label still needs confirmation.</td></tr>
     <tr><th scope="row">Enclosure</th><td>Printed tower with lower I/O openings, a vertical drive bay and a ventilated top cover.</td></tr>
@@ -81,8 +82,39 @@
   </tbody></table></div>
   <figure class="wiring-figure"><a class="zoom" href="../../assets/hardware/rpi-radxa-penta/factory-pwm.png" aria-label="Enlarge Noctua four-wire PWM connection map"><img src="../../assets/hardware/rpi-radxa-penta/factory-pwm.png" width="1024" height="1536" alt="Noctua wiring illustration: yellow to 12 V, black to ground, blue to physical pin 12 GPIO18, green to physical pin 18 GPIO24" loading="lazy" decoding="async"></a><figcaption>Four-wire variant. This connection uses no external resistor; enable the GPIO24 internal pull-up in software. Click to enlarge.</figcaption></figure>
   <p>Noctua's PWM input accepts 3.3 V logic. The target is <strong>25 kHz</strong> (40,000 ns period), with a specified 21–28 kHz range. Its tachometer is open-collector and produces two pulses per revolution. See <a href="https://noctua.at/pub/media/wysiwyg/Noctua_PWM_specifications_white_paper.pdf">Noctua's PWM specification</a> and <a href="https://www.noctua.at/en/products/nf-a6x15-pwm/specifications">fan specifications</a>.</p>
-  <p>Keep yellow and black continuously powered; do not reuse the old GPIO27 low-frequency supply switching. Physical pin 6 is a ground reference, and physical pin 1 stays unconnected. Never pull the tach signal up to 5 V or 12 V. Verify RPM reliability with the internal pull-up.</p>
+  <p>Keep yellow and black continuously powered; do not reuse the old GPIO27 low-frequency supply switching. Physical pin 6 is a ground reference. The fan does not use physical pin 1; the optional OLED below uses it for 3.3 V. Never pull the tach signal up to 5 V or 12 V. Verify RPM reliability with the internal pull-up.</p>
   <p>On Pi 5, select the RP1 hardware PWM function for GPIO18 and check pin ownership and overlays first. Do not copy a Pi 4 PWM channel number or assume a fixed <code>pwmchip</code> index. Removing the PWM signal normally gives full speed; a signal stuck low is a different failure and needs explicit handling. Power may remain on after OS shutdown.</p>
+</section>
+<section id="oled">
+  <p class="eyebrow">Optional status display</p><h2>The OLED screen on this NAS</h2>
+  <p>This build uses an <strong>unbranded monochrome 128×64 I²C OLED module</strong> with <strong><code>NFP1315-51A</code></strong> printed on its flexible cable. The blue PCB is approximately 30 × 30 mm and has four contacts labelled <code>VCC</code>, <code>GND</code>, <code>SCL</code> and <code>SDA</code>. This marking identifies the module we tested; a manufacturer and retail part number are not available.</p>
+  <p>Our unit works at <strong>3.3 V</strong>, responds at <strong><code>0x3C</code></strong> and displays the full 128×64 image using the <strong>SSD1306-compatible configuration with zero column offset</strong>. The controller IC has not been independently identified. Do not assume that a similar-looking module uses the same controller or pin order: a two-column offset shifted the right edge off our screen, while the zero-offset setting showed the complete test frame.</p>
+  <h3>Solder to the HAT's 40-pin header joints</h3>
+  <p>The wires attach directly to the solder joints of the HAT's <strong>40-pin header that mates with the Raspberry Pi</strong>. These are physical header numbers, not the separate 2×5 connector's numbers. GPIO2 and GPIO3 below use BCM numbering.</p>
+  <div class="guide-table" role="region" aria-label="OLED wiring connections" tabindex="0"><table><thead><tr><th scope="col">OLED contact</th><th scope="col">Physical header pin</th><th scope="col">Signal</th></tr></thead><tbody>
+    <tr><th scope="row">VCC</th><td>1</td><td>3.3 V from the Raspberry Pi header</td></tr>
+    <tr><th scope="row">GND</th><td>6</td><td>Ground</td></tr>
+    <tr><th scope="row">SCL</th><td>5</td><td>GPIO3 · I²C clock</td></tr>
+    <tr><th scope="row">SDA</th><td>3</td><td>GPIO2 · I²C data</td></tr>
+  </tbody></table></div>
+  <figure class="wiring-figure"><a class="zoom" href="../../assets/hardware/rpi-radxa-penta/oled-wiring.png" aria-label="Enlarge the OLED solder-joint connection map"><img src="../../assets/hardware/rpi-radxa-penta/oled-wiring.png" width="1024" height="1536" alt="OLED connection map: physical pin 1 supplies 3.3 V to VCC, pin 6 connects GND, pin 5 GPIO3 connects SCL, and pin 3 GPIO2 connects SDA. Component-side view with pin 1 at the rightmost inner joint." loading="lazy" decoding="async"></a><figcaption>Component-side view: SATA connectors face you, the large power connector is at the upper left, and the 40-pin joints run along the bottom. The rightmost inner joint is pin 1; the outer joint below it is pin 2. Colours identify signals in this illustration, not the colours of an existing cable. Click to enlarge.</figcaption></figure>
+  <aside class="build-note"><strong>Disconnect power before soldering.</strong> Use the actual metal header contact for pin 1: Radxa's HAT pin-allocation table leaves this position unused by the HAT circuit, but the mated Raspberry Pi header supplies 3.3 V. Do not substitute the HAT's 12 V input or a 5 V contact. Confirm pin orientation, continuity and absence of bridges on your own board.</aside>
+  <p>This connection leaves the disk fan's GPIO18 PWM and GPIO24 tachometer lines free. The <a href="https://docs.radxa.com/en/accessories/storage/penta-sata-hat#40pin-pinout">Radxa pin allocation</a> lists pins 3 and 5 for OLED I²C; the <a href="https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#gpio-and-the-40-pin-header">Raspberry Pi header documentation</a> describes the Pi's GPIO and power contacts.</p>
+  <h3>Enable it in PaNasMs</h3>
+  <ol>
+    <li>Install PaNasMs <strong>0.2.30 or later</strong>, then open <strong>Settings → General → OLED display</strong>. Display support is available on compatible Raspberry Pi 5 systems and is <strong>off on a fresh installation</strong>.</li>
+    <li>Enable display support. For this wiring, retain <strong>SDA GPIO2 / SCL GPIO3</strong> (physical pins 3 / 5), <strong>SSD1306 · 128×64</strong> and address <strong>0x3C</strong> in Advanced settings. PaNasMs uses I²C bus 1 for this pin pair. The tested brightness is 25%, with rotation 0°.</li>
+    <li>Choose a layout, inspect its example and press <strong>Apply</strong>. Selecting an example alone does not change the physical screen. Brightness and 180° rotation can be adjusted in the same section.</li>
+  </ol>
+  <p>PaNasMs manages the display service and I²C setup. This standalone display uses PaNasMs directly; the optional Radxa top-board software is not needed for it. Choose other GPIO pairs only when your wiring matches them; conflicts with the cooling pins are rejected and changing pins on an active I²C bus may require a restart.</p>
+  <ul>
+    <li><strong>Overview:</strong> NAS name, IP address, CPU temperature, hottest disk and a fifth row for uptime.</li>
+    <li><strong>Large temperatures:</strong> IP address plus larger CPU and hottest-disk readings. This is the current choice on our NAS.</li>
+    <li><strong>Individual disks:</strong> IP address, CPU and each disk's temperature; longer disk lists continue on further pages.</li>
+    <li><strong>Rotating pages:</strong> IP address, CPU and each disk on separate pages with large temperature values.</li>
+  </ul>
+  <p>The page interval is adjustable from 4 to 60 seconds in Advanced settings, with a default of 6 seconds. IP, CPU and disk readings can be selected separately. Disk temperatures reuse existing cooling telemetry without waking sleeping disks; unavailable or stale temperatures appear as <code>--</code>.</p>
+  <p class="muted">Verified on this unit in October 2026: I²C communication, a complete frame with zero offset, readable large text, four layout modes and automatic page changes. Other controller types and alternative pin pairs have not been physically tested on this build.</p>
 </section>
 <section id="checks">
   <h2>Before powering on</h2>
@@ -100,6 +132,6 @@
   <p>Build inventory and operating status come from the owner's project records. Assembly photos: Pavlo, cropped and retouched with the built-in image editor; original photos remain private. Published photo derivatives are covered by this site's Sustainable Use License 1.0.</p>
   <p>Wiring illustrations: Radxa reference photograph with AI-assisted PaNasMs annotations and schematic pin enlargements. Source: <a href="https://docs.radxa.com/en/assets/images/penta-sata-hat-01-cbed42f1240a8c784c2e41c70f874354.webp">Radxa Penta SATA HAT image</a>, <a href="https://docs.radxa.com/en/accessories/storage/penta-sata-hat">Radxa documentation</a>, licensed <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Adapted wiring images retain that attribution; they are not precision manufacturing drawings.</p>
   <p>Additional references: <a href="https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#gpio-and-the-40-pin-header">Raspberry Pi GPIO documentation</a> · <a href="https://datasheets.raspberrypi.com/rp1/rp1-peripherals.pdf">RP1 peripherals</a> · <a href="https://dl.radxa.com/accessories/sata-hat/penta/ROCKPI_PENTA_SATA_HAT_2D_v1.2.zip">Radxa V1.2 mechanical reference</a>.</p>
-  <p class="muted">Build record: September 2026. One working NAS, not a certification of every board revision, disk, fan or case combination.</p>
+  <p class="muted">Build record: September 2026; OLED added in October 2026. One working NAS, not a certification of every board revision, disk, fan or case combination.</p>
 </section>
 </div>

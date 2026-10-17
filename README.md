@@ -96,7 +96,7 @@ Disks and arrays were recaptured on October 9 with stable 0.2.15.
 ## Hardware build page
 
 `pages/rpi-radxa-penta.html` describes the owner's NAS: Raspberry Pi 5, Radxa Penta
-SATA HAT and four 2.5-inch drives. The photos illustrate assembly stages. The pin tables
+SATA HAT, four 2.5-inch drives and the NFP1315-51A-marked 128×64 OLED. The OLED section records the tested zero-offset SSD1306-compatible setup without claiming an independently identified controller IC. The photos illustrate assembly stages. The pin tables
 are what governs electrical connections. Never publish original desktop photos, serial
 numbers, monitor content or private hardware notes. CAD files are not included yet.
 
