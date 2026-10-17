@@ -41,7 +41,7 @@ for path, page in pages.items():
     html = path.read_text()
     assert 'id="analytics-consent"' in html and 'data-analytics-preferences' in html, f'Missing consent UI: {path}'
     assert 'googletagmanager.com' not in html and 'google-analytics.com' not in html, f'Google loaded before consent: {path}'
-    assert page.images == (0 if path.parent.name in ("privacy", "terms", "install") else 1 if path.parent.name in ("github", "dropbox") else 5 if path.parent.name == "google" else 6 if path.parent.name == "rpi_radxa_penta" else 2 + len(list((ROOT / 'assets/screenshots').glob('home-*.png')))), (path, page.images)
+    assert page.images == (0 if path.parent.name in ("privacy", "terms", "install") else 1 if path.parent.name in ("github", "dropbox") else 5 if path.parent.name == "google" else 7 if path.parent.name == "rpi_radxa_penta" else 2 + len(list((ROOT / 'assets/screenshots').glob('home-*.png')))), (path, page.images)
     for link in page.links:
         url = urlsplit(link)
         if url.scheme or url.netloc:
