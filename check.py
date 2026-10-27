@@ -36,8 +36,9 @@ class Page(HTMLParser):
                 assert all(0 < value <= 10000 for value in size), f'Unreasonable dimensions: {image}'
             self.images += 1
 
-pages = {p.resolve(): Page(p) for p in ROOT.rglob('*.html')}
+pages = {p.resolve(): Page(p) for p in ROOT.rglob('index.html')}
 assert len(pages) == 10
+assert (ROOT / 'googleb68279be115e9c18.html').read_bytes() == (ROOT.parent / 'googleb68279be115e9c18.html').read_bytes()
 canonicals = set()
 titles = set()
 descriptions = set()

@@ -13,6 +13,7 @@ OUT.mkdir(exist_ok=True)
 shutil.copytree(ROOT / 'assets', OUT / 'assets', dirs_exist_ok=True)
 for name in ('style.css', 'app.js', 'analytics.js', 'favicon.svg'):
     shutil.copyfile(ROOT / name, OUT / name)
+shutil.copyfile(ROOT / 'googleb68279be115e9c18.html', OUT / 'googleb68279be115e9c18.html')
 
 def e(value):
     return escape(value, quote=True)
