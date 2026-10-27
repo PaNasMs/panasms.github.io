@@ -45,7 +45,7 @@
   <p>This DIY NAS runs Raspberry Pi OS 13 (64-bit) on a microSD card, with PaNasMs installed on top. PaNasMs is a browser-based management panel, not a bootable NAS image. The four SATA drives are separate from the system card.</p>
   <ol>
     <li>Assemble the Pi, SATA HAT, drives and cooling, then check the power supply, board revision and wiring against <a href="https://docs.radxa.com/en/accessories/storage/penta-sata-hat/penta-for-rpi5">Radxa's Raspberry Pi 5 instructions</a>.</li>
-    <li>Install Raspberry Pi OS 13 (64-bit) on the system card, create an administrator account and boot the Pi. Confirm that Linux detects the intended drives before configuring storage.</li>
+    <li>Install Raspberry Pi OS 13 (64-bit) on the system card, create an administrator account and boot the Pi. Follow <a href="https://docs.radxa.com/en/accessories/storage/penta-sata-hat/penta-for-rpi5#enable-pcie">Radxa's PCIe setup</a>: add <code>dtparam=pciex1</code> to <code>/boot/firmware/config.txt</code> and reboot. Then confirm that Linux detects the intended drives before configuring storage.</li>
     <li>Follow the <a href="../../docs/setup/install/">PaNasMs installation guide</a> on the Pi. The installer adds the panel to the existing OS; it does not format data drives or create a RAID array.</li>
     <li>Use PaNasMs to inspect the disks and configure storage for your own needs. Check disk identifiers and keep a separate backup before any formatting or array changes; this build's encrypted RAID 6 is an example, not a required layout.</li>
   </ol>
