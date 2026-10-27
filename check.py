@@ -4,7 +4,6 @@ from urllib.parse import urlsplit, unquote
 import json
 import re
 import struct
-from xml.etree import ElementTree
 
 ROOT = Path(__file__).resolve().parent / 'public'
 
@@ -68,8 +67,7 @@ for path, page in pages.items():
         if url.fragment:
             assert target in pages and url.fragment in pages[target].ids, f'Broken anchor: {link}'
 assert len(titles) == len(descriptions) == len(canonicals) == len(pages), 'Duplicate search metadata'
-sitemap = ElementTree.parse(ROOT / 'sitemap.xml')
-sitemap_urls = {item.text for item in sitemap.findall('.//{http://www.sitemaps.org/schemas/sitemap/0.9}loc')}
+sitemap_urls = set(re.findall(r'<loc>([^<]+)</loc>', (ROOT / 'sitemap.xml').read_text()))
 assert sitemap_urls == canonicals, 'Sitemap and canonical URLs differ'
 assert 'Sitemap: https://panasms.github.io/sitemap.xml' in (ROOT / 'robots.txt').read_text()
 content = json.loads((ROOT.parent / 'content.json').read_text())
