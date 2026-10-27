@@ -1,7 +1,7 @@
 <section class="build-hero" aria-labelledby="build-title">
   <div>
     <p class="eyebrow">Hardware / Build 01</p>
-    <h1 id="build-title">Raspberry Pi 5.<br>Four drives.<br>One compact NAS.</h1>
+    <h1 id="build-title">Raspberry Pi 5 NAS.<br>Radxa Penta HAT.<br>Four SATA drives.</h1>
     <p class="lead">The first real-world PaNasMs build: a Raspberry Pi 5, a Radxa Penta SATA HAT and four 2.5-inch hard drives in a 3D-printed enclosure.</p>
     <p>This is the owner's working NAS and our development system. The assembly photos show how it came together; the wiring sections explain two-wire and four-wire fan connections and the optional OLED status screen.</p>
     <dl class="build-facts"><div><dt>Board</dt><dd>Pi 5 · 8 GB</dd></div><div><dt>Storage</dt><dd>4 × 1 TB HDD</dd></div><div><dt>Array</dt><dd>Linux RAID 6, encrypted</dd></div></dl>
@@ -12,7 +12,7 @@
     <figcaption>The assembled enclosure. Retouched from the owner's photograph; monitor content has been excluded.</figcaption>
   </figure>
 </section>
-<nav class="build-nav" aria-label="On this page"><a href="#components">Components</a><a href="#assembly">Assembly</a><a href="#cooling">Cooling options</a><a href="#custom-pwm">Two-wire wiring</a><a href="#factory-pwm">Four-wire wiring</a><a href="#oled">OLED screen</a><a href="#checks">Before powering on</a></nav>
+<nav class="build-nav" aria-label="On this page"><a href="#components">Components</a><a href="#assembly">Assembly</a><a href="#software">NAS software</a><a href="#cooling">Cooling options</a><a href="#custom-pwm">Two-wire wiring</a><a href="#factory-pwm">Four-wire wiring</a><a href="#oled">OLED screen</a><a href="#checks">Before powering on</a></nav>
 <div class="build-body">
 <section id="components">
   <p class="eyebrow">The parts</p><h2>What is inside</h2>
@@ -39,6 +39,17 @@
   <p>The Pi sits below the HAT, with the drives standing above it. Keep the PCIe ribbon clear of sharp bends, provide mechanical support for the drives and leave the case vents unobstructed. Check standoff height, connector clearance and wiring before closing the cover.</p>
   <p>These images were cropped and retouched from the owner's September 2026 photos using AI-assisted image editing. They illustrate assembly stages, not exact electrical connections. Use the numbered wiring tables below for those.</p>
   <p>CAD and printable parts are being organised separately. A final reproducible print set, fastener list and third-party model licences are still being checked; this page does not provide a validated case download or claim that a 60 mm replacement fan fits the current cover.</p>
+</section>
+<section id="software">
+  <p class="eyebrow">From hardware to a working NAS</p><h2>Install the operating system and PaNasMs</h2>
+  <p>This DIY NAS runs Raspberry Pi OS 13 (64-bit) on a microSD card, with PaNasMs installed on top. PaNasMs is a browser-based management panel, not a bootable NAS image. The four SATA drives are separate from the system card.</p>
+  <ol>
+    <li>Assemble the Pi, SATA HAT, drives and cooling, then check the power supply, board revision and wiring against <a href="https://docs.radxa.com/en/accessories/storage/penta-sata-hat/penta-for-rpi5">Radxa's Raspberry Pi 5 instructions</a>.</li>
+    <li>Install Raspberry Pi OS 13 (64-bit) on the system card, create an administrator account and boot the Pi. Follow <a href="https://docs.radxa.com/en/accessories/storage/penta-sata-hat/penta-for-rpi5#enable-pcie">Radxa's PCIe setup</a>: add <code>dtparam=pciex1</code> to <code>/boot/firmware/config.txt</code> and reboot. Then confirm that Linux detects the intended drives before configuring storage.</li>
+    <li>Follow the <a href="../../docs/setup/install/">PaNasMs installation guide</a> on the Pi. The installer adds the panel to the existing OS; it does not format data drives or create a RAID array.</li>
+    <li>Use PaNasMs to inspect the disks and configure storage for your own needs. Check disk identifiers and keep a separate backup before any formatting or array changes; this build's encrypted RAID 6 is an example, not a required layout.</li>
+  </ol>
+  <p>The install guide also covers supported Linux versions, first sign-in and updates. Disk cooling and the optional OLED display need the matching physical wiring and settings described below.</p>
 </section>
 <section id="cooling">
   <p class="eyebrow">Disk-bay cooling</p><h2>Two ways to control the fan</h2>
