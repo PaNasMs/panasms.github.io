@@ -1,7 +1,7 @@
 {
   "en": {
-    "title": "PaNasMs · Your NAS, within reach",
-    "description": "Manage your home NAS from a browser. Files, disks, people and network, together in a clear interface.",
+    "title": "PaNasMs | DIY NAS software for Raspberry Pi and Linux",
+    "description": "Build and manage a DIY NAS on Raspberry Pi 5 or supported Linux PCs. PaNasMs brings storage, files, users and network settings into one browser panel.",
     "navFeatures": "Explore",
     "navInstall": "Get started",
     "language": "Language",
@@ -218,8 +218,8 @@
     "platformNote": "Use the exact distributions and versions above. Ubuntu ARM64, other Ubuntu releases and the Red Hat family are not supported by the current installer. VM checks do not certify every x64 computer. Armbian validation covers this Debian 13 build on Raspberry Pi 5, not every Armbian image or board."
   },
   "ru": {
-    "title": "PaNasMs — Ваш NAS под рукой",
-    "description": "Управляйте домашним NAS через браузер. Файлы, диски, пользователи и сеть в одном понятном интерфейсе.",
+    "title": "PaNasMs — программа для DIY NAS на Raspberry Pi и Linux",
+    "description": "Соберите и управляйте домашним NAS на Raspberry Pi 5 или поддерживаемом ПК с Linux. Диски, файлы, пользователи и сеть — в одной веб-панели.",
     "navFeatures": "Возможности",
     "navInstall": "С чего начать",
     "language": "Язык",
@@ -436,8 +436,8 @@
     "platformNote": "Используйте указанные дистрибутивы и версии. Текущий установщик не поддерживает Ubuntu ARM64, другие версии Ubuntu и семейство Red Hat. Проверка на ВМ не гарантирует совместимость любого компьютера x64. Проверка Armbian относится к этой сборке на Debian 13 и Raspberry Pi 5, а не ко всем образам и платам."
   },
   "uk": {
-    "title": "PaNasMs — Ваш NAS під рукою",
-    "description": "Керуйте домашнім NAS через браузер. Файли, диски, користувачі та мережа в одному зрозумілому інтерфейсі.",
+    "title": "PaNasMs — програма для DIY NAS на Raspberry Pi та Linux",
+    "description": "Створіть домашній NAS на Raspberry Pi 5 або підтримуваному ПК з Linux. Керуйте дисками, файлами, користувачами й мережею в одній вебпанелі.",
     "navFeatures": "Можливості",
     "navInstall": "Як почати",
     "language": "Мова",

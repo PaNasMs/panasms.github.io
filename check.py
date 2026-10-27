@@ -2,7 +2,9 @@ from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urlsplit, unquote
 import json
+import re
 import struct
+from xml.etree import ElementTree
 
 ROOT = Path(__file__).resolve().parent / 'public'
 
@@ -37,8 +39,20 @@ class Page(HTMLParser):
 
 pages = {p.resolve(): Page(p) for p in ROOT.rglob('*.html')}
 assert len(pages) == 10
+canonicals = set()
+titles = set()
+descriptions = set()
 for path, page in pages.items():
     html = path.read_text()
+    title = re.search(r'<title>([^<]+)</title>', html)
+    description = re.search(r'<meta name="description" content="([^"]+)"', html)
+    canonical = re.search(r'<link rel="canonical" href="([^"]+)"', html)
+    assert title and description and canonical, f'Missing search metadata: {path}'
+    expected = 'https://panasms.github.io/' + ('/'.join(path.relative_to(ROOT).parts[:-1]) + '/' if path.parent != ROOT else '')
+    assert canonical.group(1) == expected, f'Wrong canonical URL: {path}'
+    titles.add(title.group(1))
+    descriptions.add(description.group(1))
+    canonicals.add(canonical.group(1))
     assert 'id="analytics-consent"' in html and 'data-analytics-preferences' in html, f'Missing consent UI: {path}'
     assert 'googletagmanager.com' not in html and 'google-analytics.com' not in html, f'Google loaded before consent: {path}'
     assert page.images == (0 if path.parent.name in ("privacy", "terms", "install") else 1 if path.parent.name in ("github", "dropbox") else 5 if path.parent.name == "google" else 7 if path.parent.name == "rpi_radxa_penta" else 2 + len(list((ROOT / 'assets/screenshots').glob('home-*.png')))), (path, page.images)
@@ -53,6 +67,11 @@ for path, page in pages.items():
         assert target.is_file(), f'Broken local link: {path}: {link}'
         if url.fragment:
             assert target in pages and url.fragment in pages[target].ids, f'Broken anchor: {link}'
+assert len(titles) == len(descriptions) == len(canonicals) == len(pages), 'Duplicate search metadata'
+sitemap = ElementTree.parse(ROOT / 'sitemap.xml')
+sitemap_urls = {item.text for item in sitemap.findall('.//{http://www.sitemaps.org/schemas/sitemap/0.9}loc')}
+assert sitemap_urls == canonicals, 'Sitemap and canonical URLs differ'
+assert 'Sitemap: https://panasms.github.io/sitemap.xml' in (ROOT / 'robots.txt').read_text()
 content = json.loads((ROOT.parent / 'content.json').read_text())
 consent = json.loads((ROOT.parent / 'analytics-content.json').read_text())
 assert set(consent) == set(content)
