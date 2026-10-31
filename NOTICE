@@ -46,3 +46,5 @@ Power-control images power-on-auto-off-original.png and power-optocoupler-propos
 Power-control image power-gpio25-original.png: owner Pololu photograph and AI-assisted annotations with a Raspberry Pi 5 reference image.
 Raspberry Pi reference: https://assets.raspberrypi.com/static/c671804c05a51efc4e3c2a1bdcbafbcf/e58b5/raspberry-pi-5.png
 These three historical Russian diagrams are reproduced with the owner’s permission; corrections and validation status accompany them on the hardware page. Underlying third-party artwork retains its respective copyrights and licenses; this notice does not relicense it.
+
+English power diagrams power-on-auto-off-en.png, power-gpio25-en.png and power-optocoupler-en.png are AI-assisted translations and corrections of the assembly references credited above. The GPIO25 illustration uses an enlarged eight-hole Pololu edge detail; the optional circuit uses a logical power-switch block. They retain the underlying image credits and rights.
