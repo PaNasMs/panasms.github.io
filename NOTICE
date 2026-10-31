@@ -37,6 +37,8 @@ Third-party icons and artwork retain their respective copyrights and licenses. T
 Hardware photos in assets/hardware/rpi-radxa-penta/*.webp: original photos by
 Pavlo, cropped and retouched using AI-assisted image editing. Published derivatives
 are covered by Sustainable Use License 1.0. Originals are not distributed.
+The enclosure-oled-button.webp derivative shows the updated October 2026 enclosure,
+retouched with a simplified background from Pavlo's photograph.
 Cooling and OLED wiring PNG illustrations: Radxa reference photograph with PaNasMs
 AI-assisted annotations and schematic pin enlargements, CC BY 4.0.
 Source: https://docs.radxa.com/en/accessories/storage/penta-sata-hat
