@@ -825,3 +825,5 @@ footer .legal { margin: 0; }
   .analytics-consent { inset: auto 12px 12px; width: auto; padding: 20px; max-height: calc(100dvh - 24px); }
   .analytics-actions button { flex: 1 1 100%; }
 }
+
+.power-connections table { min-width: 36rem; }

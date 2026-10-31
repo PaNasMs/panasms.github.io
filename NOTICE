@@ -37,7 +37,12 @@ Third-party icons and artwork retain their respective copyrights and licenses. T
 Hardware photos in assets/hardware/rpi-radxa-penta/*.webp: original photos by
 Pavlo, cropped and retouched using AI-assisted image editing. Published derivatives
 are covered by Sustainable Use License 1.0. Originals are not distributed.
-Hardware wiring PNG illustrations: Radxa reference photograph with PaNasMs
+Cooling and OLED wiring PNG illustrations: Radxa reference photograph with PaNasMs
 AI-assisted annotations and schematic pin enlargements, CC BY 4.0.
 Source: https://docs.radxa.com/en/accessories/storage/penta-sata-hat
 Licence: https://creativecommons.org/licenses/by/4.0/
+
+Power-control images power-on-auto-off-original.png and power-optocoupler-proposal.png: owner assembly references with AI-assisted annotations and adapted Radxa imagery (CC BY 4.0, source above).
+Power-control image power-gpio25-original.png: owner Pololu photograph and AI-assisted annotations with a Raspberry Pi 5 reference image.
+Raspberry Pi reference: https://assets.raspberrypi.com/static/c671804c05a51efc4e3c2a1bdcbafbcf/e58b5/raspberry-pi-5.png
+These three historical Russian diagrams are reproduced with the owner’s permission; corrections and validation status accompany them on the hardware page. Underlying third-party artwork retains its respective copyrights and licenses; this notice does not relicense it.
