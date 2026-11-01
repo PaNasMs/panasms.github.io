@@ -50,3 +50,5 @@ Raspberry Pi reference: https://assets.raspberrypi.com/static/c671804c05a51efc4e
 These three historical Russian diagrams are reproduced with the owner’s permission; corrections and validation status accompany them on the hardware page. Underlying third-party artwork retains its respective copyrights and licenses; this notice does not relicense it.
 
 English power diagrams power-on-auto-off-en.png, power-gpio25-en.png and power-optocoupler-en.png are AI-assisted translations and corrections of the assembly references credited above. The GPIO25 illustration uses an enlarged eight-hole Pololu edge detail; the optional circuit uses a logical power-switch block. They retain the underlying image credits and rights.
+
+The displayed power-optocoupler-photo.png preserves the existing circuit panels and replaces the generated header illustration with a crop of the original Radxa photograph, with programmatically positioned annotations. The editable crop and annotation panel is hat-header-photo-panel.svg. Radxa source: https://docs.radxa.com/en/assets/images/penta-sata-hat-01-cbed42f1240a8c784c2e41c70f874354.webp (CC BY 4.0).
