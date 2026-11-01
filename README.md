@@ -96,7 +96,7 @@ Disks and arrays were recaptured on October 9 with stable 0.2.15.
 ## Hardware build page
 
 `pages/rpi-radxa-penta.html` describes my NAS: Raspberry Pi 5, Radxa Penta
-SATA HAT, four 2.5-inch drives and the NFP1315-51A-marked 128×64 OLED. The OLED section records the tested zero-offset SSD1306-compatible setup without claiming an independently identified controller IC. The power section documents my lifted positive DC connector contact, Pololu on-only button and final GPIO25 power-off support in stable 0.2.31. The page uses a consistent first-person voice and English-localized power diagrams, supported by an English wiring table. The PC817 shutdown-request extension is an unbuilt proposal without an implemented button handler. The photos illustrate assembly stages. The pin tables
+SATA HAT, four 2.5-inch drives and the NFP1315-51A-marked 128×64 OLED. The OLED section records the tested zero-offset SSD1306-compatible setup without claiming an independently identified controller IC. The power section documents my lifted positive DC connector contact, Pololu on-only button and final GPIO25 power-off support in stable 0.2.31. The page uses a consistent first-person voice and English-localized power diagrams, supported by an English wiring table. The PC817 shutdown-request extension is an unbuilt proposal with an optional software handler in 0.2.32 Testing builds; its physical circuit remains untested. The photos illustrate assembly stages. The pin tables
 are what governs electrical connections. Never publish original desktop photos, serial
 numbers, monitor content or private hardware notes. CAD files are not included yet.
 
