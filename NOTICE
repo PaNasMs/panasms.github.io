@@ -34,9 +34,15 @@ Wallpaper source: https://github.com/KDE/plasma-workspace-wallpapers/tree/master
 
 Third-party icons and artwork retain their respective copyrights and licenses. This notice does not relicense the underlying application source or grant trademark rights.
 
-Hardware photos in assets/hardware/rpi-radxa-penta/*.webp: original photos by
-Pavlo, cropped and retouched using AI-assisted image editing. Published derivatives
-are covered by Sustainable Use License 1.0. Originals are not distributed.
+Hardware photos in assets/hardware/rpi-radxa-penta/*.webp, except
+pin-header-socket.webp: original photos by Pavlo. Some were retouched using
+AI-assisted image editing; pi5-active-cooler.webp was cropped from the original
+without retouching the hardware. Published derivatives are covered by Sustainable
+Use License 1.0. Originals are not distributed.
+pin-header-socket.webp adapts a photo by SparkFun Electronics, CC BY 2.0:
+https://www.flickr.com/photos/sparkfun/50137804132/
+https://creativecommons.org/licenses/by/2.0/
+It was cropped and converted to WebP.
 The assembled.webp derivative shows the completed November 2026 enclosure with
 the background retouched; the OLED status remains visible.
 The enclosure-oled-button.webp derivative shows the updated October 2026 enclosure,
